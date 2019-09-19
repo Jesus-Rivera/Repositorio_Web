@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap CSS -->
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="Resources/css/bootstrap.min.css">
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link type="text/css" rel="stylesheet" href="css/main.css">
-<script type="text/javascript" src="js/main.js"></script>
+<link type="text/css" rel="stylesheet" href="Resources/css/main.css">
+<script type="text/javascript" src="Resources/js/main.js"></script>
 <title>Repositorio</title>
 </head>
 <body>
@@ -67,7 +67,7 @@
         <div class="col-sm-4">
             <div class="placeBox">
                 <div class="imgBx">
-                    <img src="img/web.jpg">
+                    <img src="Resources/img/web.jpg">
                 </div>
                 <div class="content">
                     <h3><span>Tecnologias para la Web</span></h3>
@@ -77,7 +77,7 @@
         <div class="col-sm-4">
             <div class="placeBox">
                 <div class="imgBx">
-                    <img src="img/ia.jpg">
+                    <img src="Resources/img/ia.jpg">
                 </div>
                 <div class="content">
                     <h3><span>Inteligencia Artificial</span></h3>
@@ -87,7 +87,7 @@
         <div class="col-sm-4">
             <div class="placeBox">
                 <div class="imgBx">
-                    <img src="img/base-de-datos.jpg">
+                    <img src="Resources/img/base-de-datos.jpg">
                 </div>
                 <div class="content">
                     <h3><span>Base de Datos</span></h3>
@@ -187,9 +187,9 @@
 </footer>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="js/jquery-3.4.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="Resources/js/jquery-3.4.1.min.js"></script>
+<script src="Resources/js/popper.min.js"></script>
+<script src="Resources/js/bootstrap.min.js"></script>
 <script type="text/javascript">
         $(document).scroll(function(){
             $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
