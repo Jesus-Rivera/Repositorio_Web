@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAIA,UAAW;EACV,MAAM,EAAE,gBAAqB;;AAG9B,IAAK;EACJ,MAAM,EAAE,iBAAoB;;AAG7B,QAAO;EACN,MAAM,EAAE,cAAc",
-"sources": ["../scss/estilos.scss"],
-"names": [],
-"file": "estilos.css"
-}
