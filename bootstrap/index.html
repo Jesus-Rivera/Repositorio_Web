@@ -111,9 +111,35 @@
     </div>
 </div>
 </section>
-<section class="row clearfix" id="inicioSesion">
-    <div class="offset-sm-2 col-sm8">
-        
+<section class="formmulario" id="inicioSesion">
+    <div class="container">
+         <div class="offset-sm-2 col-sm8">
+            <form action="" method="get" accept-charset="utf-8">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="" id="nombre" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="validationCustomUsername">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        </div>
+                            <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                            <div class="invalid-feedback">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo electronico</label>
+                    <input type="email" name="" id="correo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contrasenia">Contraseña</label>
+                    <input type="password" name="" id="contrasenia" class="form-control">
+                </div>
+            </form>
+        </div>
     </div>
 </section>
 <footer>
