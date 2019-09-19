@@ -1,43 +1,3 @@
-<!doctype html>
-<html lang="es">
-<head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Bootstrap CSS -->
-<link type="text/css" rel="stylesheet" href="Resources/css/bootstrap.min.css">
-<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-<link type="text/css" rel="stylesheet" href="Resources/css/main.css">
-<script type="text/javascript" src="Resources/js/main.js"></script>
-<title>Repositorio</title>
-</head>
-<body>
-<header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-<div class="container">
-    <a class="navbar-brand" href="#">RMD</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-lg-auto">
-            <li class="nav-item active">
-            <a class="nav-link" href="#inicio">Inicio<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#material">Material</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#profesores">Profesores</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#inicioSesion">Iniciar sesion</a>
-            </li>
-        </ul>
-    </div>
-</div>
-</nav>
-</header>
 <div class="jumbotron jumbotron-fluid height100p banner" id="inicio">
     <div class="container h100">
         <div class="contentBox h100">
@@ -168,31 +128,3 @@
     </div>
 </div>
 </section>
-<footer>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <ul class="sci">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-            <p class="cpryt">
-                 © Copyright 2019 RMD
-            </p>
-        </div>
-    </div>
-</div>
-</footer>
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="Resources/js/jquery-3.4.1.min.js"></script>
-<script src="Resources/js/popper.min.js"></script>
-<script src="Resources/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-        $(document).scroll(function(){
-            $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());
-        });
-    </script>
-</body>
