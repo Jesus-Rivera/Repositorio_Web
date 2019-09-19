@@ -1,0 +1,15 @@
+$texto:black;
+$principal: skyblue;
+$secundario: orange;
+
+.container {
+	border: 2px solid $secundario;
+}
+
+.row {
+	border: 2px solid $principal;
+}
+
+.row>* {
+	border: 2px solid grey;
+}
