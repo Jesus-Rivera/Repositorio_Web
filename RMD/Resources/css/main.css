@@ -34,6 +34,7 @@ p {
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
     color: #000;
     background: #fff;
+    border-radius: 10px;
 }
 .navbar-light .navbar-nav .nav-link {
     color: rgba(255,255,255,.8);
@@ -71,7 +72,9 @@ p {
 	background: linear-gradient(#000, transparent);
 	pointer-events: none;
 }
-.banner:after {
+.banner:after,
+.sec2:after,
+.formulario:after {
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -183,22 +186,23 @@ p {
 	margin-top: 20px;
 }
 
-.btnD1:hover {
-	color: gray;
-	border-bottom: 2px solid rgba(255,255,255,.5);
-}
-
 .formulario {
 	text-align: center;
 	position: relative;
 	padding: 170px 0;
-	background:url(../img/form.jpg);
+	background: url(../img/form.jpg);
 	background-size: cover;
 	min-height: 100vh; 
+
 }
 .formulario form {
 	position: relative;
 	z-index: 1000;
+}
+
+input[type="text"] {
+	text-align: center;
+
 }
 
 .formulario .form-control {
