@@ -183,11 +183,16 @@ p {
 	margin-top: 20px;
 }
 
+.btnD1:hover {
+	color: gray;
+	border-bottom: 2px solid rgba(255,255,255,.5);
+}
+
 .formulario {
 	text-align: center;
 	position: relative;
-	padding: 130px 0;
-	background: gray;
+	padding: 170px 0;
+	/*background:;*/
 	background-size: cover;
 	min-height: 100vh; 
 }
