@@ -220,3 +220,99 @@ p {
 .formulario label {
 	color: #fff;
 }
+
+footer {
+	background: #000;
+	padding: 50px 0 0;
+}
+
+.sci {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.sci li {
+	list-style: none;
+	margin: 0 20px;
+}
+.sci li a {
+	color: #777;
+	font-size: 2em;
+	transition: 0.5s;
+}
+.sci li a:hover {
+	color: #fff;
+}
+.cpryt {
+	margin-top: 20px;
+	text-align: center;
+	color: #777;
+}
+
+@media (min-width: 992px) {
+	.navbar-expand-lg .navbar-nav .nav-link {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+}
+
+@media (max-width: 992px){
+	.navbar-light .navbar-toggler {
+    	background: #fff;
+    	border-radius: 0;
+	}
+	.banner {
+		min-height: 100vh;
+		padding: 100px  0;
+	} 
+	.contentBox h1,
+	.sec2 h2 {
+		font-size: 2.5rem;
+	}
+	.headerText h2 {
+		font-size: 2.5rem;
+	}
+	.sec1 {
+		position: relative;
+	}
+	.content {
+		margin: -100px 0;
+		/*padding: 10px;*/
+	}
+	.sec1 .imgBx {
+		height: 200px;
+	}
+
+	.formulario {
+		padding: 20px 0;
+	}
+	.formulario .form-control {
+		height: 40px;
+		border: 1px solid #fff;
+	}
+	.btnD1 {
+		padding: 10px 40px;
+		margin-top: 10px;
+	}
+	footer {
+		color: #777;
+		font-size: 1.5rem;
+		transition: 0.5s;
+	}
+	.sci li {
+		list-style: none;
+		margin: 0 10px;
+	}
+	.sci li a {
+		color: #777;
+		font-size: 1.5rem;
+		transition: 0.5s;
+	}
+	.sec2 {
+		height: auto;
+		padding: 40px 0;
+	}
+}
