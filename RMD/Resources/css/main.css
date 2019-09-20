@@ -192,7 +192,7 @@ p {
 	text-align: center;
 	position: relative;
 	padding: 170px 0;
-	/*background:;*/
+	background:url(../img/form.jpg);
 	background-size: cover;
 	min-height: 100vh; 
 }
