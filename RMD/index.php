@@ -1,5 +1,6 @@
 <?php
-    require_once("Views/header.php");
-    require_once("Views/principal.php");
-    require_once("Views/footer.php");
+	require_once("libs/controller.php");
+	require_once("libs/view.php");
+    require_once("libs/app.php");
+    $app = new App();
 ?>
