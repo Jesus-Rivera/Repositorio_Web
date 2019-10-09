@@ -1,318 +1,56 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+@import url(navbar.css);
+@import url(inicio.css);
+@import url(material.css);
+@import url(profesores.css);
+@import url(dudas.css);
+@import url(footer.css);
+@import url(formulario.css);
+/* @import url(jquery.pagepiling.css); */
 
-* {
-	outline: none !important;
-	margin: 0;
-	padding: 0;
+
+html {scroll-behavior: smooth;}
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    color: #505962;
 }
-
 body::-webkit-scrollbar  {
 	background: #000;
 	font-family: 'Poppins', sans-serif;
 	width: 7px;
 }
 body::-webkit-scrollbar-thumb {
-	background: #ff9d00;
+	background: rgba(30, 187, 163, 0.7);
 	border-radius: 15px;
 }
 
-header {
-	position: relative;
-	z-index: 1000000;
+h1 {font-size: 66px; font-weight: 600; line-height: 80px;}
+h2{
+    font-size: 48px;
+    margin-bottom:30px;
+    text-transform: uppercase;
 }
-p {
-	font-size: 1.15rem;
+p{
+    font-size: 18px;
+    columns: #999999;
+    line-height: 1.8;
+    margin-bottom: 0;
 }
-.navbar {
-	background: transparent !important;
-	transition: 0.8s;
-}
-.navbar.scrolled {
-	background: #000 !important;
-	transition: 0.8s;
-}
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: #000;
-    background: #fff;
-}
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(255,255,255,.8);
-}
-.navbar-light .navbar-nav .nav-link:hover,
-.navbar-light .navbar-nav .nav-link:focus {
-	color: rgba(255,255,255,1);
-}
-.navbar-light .navbar-brand,
-.navbar-light .navbar-brand:hover,
-.navbar-light .navbar-brand:focus,
-.navbar-light .navbar-brand:visited {
-    color: rgba(255,255,255,1);
-    font-size: 2.5rem;
-    font-weight: 600;
-}
-.banner {
-	position: relative;
-	top: 0;
-	width: 100%;
-	height: 100vh;
-	background: url(../img/bg-01.jpg);
-	background-size: cover;
-	margin-bottom: 0;
-}
-.banner:before,
-.sec2:before,
-.formulario:before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 400px;
-	background: linear-gradient(#000, transparent);
-	pointer-events: none;
-}
-.banner:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 400px;
-	background: linear-gradient(360deg,#000, transparent);
-	pointer-events: none;
-}
-.height100p {
-	height: 100vh;
-
-}
-.h100 {
-	height: 100%;
-}
-.contentBox {
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	z-index: 10;
-}
-.contentBox h1 {
-	font-weight: 800;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 5rem;
-}
-.contentBox p {
-	color: #fff;
-	font-size: 1.3rem;
-}
-.sec1 {
-	padding: 100px 0;
-	background: #000;
-}
-.headerText {
-	color: #fff;
-}
-.headerText h2 {
-	font-size: 2.5rem;
-	color: #fff;
-	margin-bottom: 20px;
-}
-.placeBox {
-	position: relative;
-	max-width: 300px;
-	height: 400px;
-	margin: 0 auto;
-	background: #000;
-	margin-top: 30px; 
-}
-.placeBox .imgBx{
-	width: 100%;
-	height: 100%;
-}
-.placeBox .imgBx img {
-	object-fit: cover;
-	width: 100%;
-	height: 100%;
-	border-radius: 10px;
-}
-.placeBox .content {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: baseline;
-	align-items: flex-end;
-}
-.placeBox .content h3 {
-	position: relative;
-	margin: 10px;
-	background: rgb(0,0,0,.75);
-	color: #fff;
-	font-weight: 600;
-	width: 100%;
-	font-size: 20px;
-	text-align: center;
-}
-.placeBox .content h3 span {
-	font-size: 16px;
-	font-weight: 500;
-}
-.sec2 {
-	position: relative;
-	background: url(../img/bg-02.jpg);
-	background-size: cover;
-	height: 100vh; 
-}
-.sec2 h2 {
-	font-weight: 800;
-	color: #fff;
-	text-transform: uppercase;
-	font-size: 4.5rem;
-}
-.btnD1 {
-	border: 2px solid #fff;
-	color: #000;
-	background: #fff;
-	border-radius: 50px;
-	padding: 10px 30px;
-	outline: none;
-	font-weight: 500;
-	margin-top: 20px;
+a:hover {
+    text-decoration: none;
 }
 
-.btnD1:hover {
-	color: gray;
-	border-bottom: 2px solid rgba(255,255,255,.5);
+section {padding: 120px 0;}
+
+.bg-light-grey {background-color:#f5f5f5;}
+
+.content-center {
+    max-width: 800px;
+    margin:0 auto 60px auto;
+    text-align: center;
 }
 
-.formulario {
-	text-align: center;
-	position: relative;
-	padding: 170px 0;
-	background:url(../img/form.jpg);
-	background-size: cover;
-	min-height: 100vh; 
-}
-.formulario form {
-	position: relative;
-	z-index: 1000;
-}
-
-.formulario .form-control {
-	background: transparent;
-	border: none;
-	border-bottom: 2px solid rgba(255,255,255,.2);
-	height: 50px;
-	border-radius: 10px;
-	background: rgba(0,0,0,.6);
-	color: #fff;
-}
-.formulario .form-control:focus,
-.formulario .form-control:hover {
-	border: none;
-	border-bottom: 2px solid rgba(255,255,255,1);
-	box-shadow: none;
-}
-
-.formulario label {
-	color: #fff;
-}
-
-footer {
-	background: #000;
-	padding: 50px 0 0;
-}
-
-.sci {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.sci li {
-	list-style: none;
-	margin: 0 20px;
-}
-.sci li a {
-	color: #777;
-	font-size: 2em;
-	transition: 0.5s;
-}
-.sci li a:hover {
-	color: #fff;
-}
-.cpryt {
-	margin-top: 20px;
-	text-align: center;
-	color: #777;
-}
-
-@media (min-width: 992px) {
-	.navbar-expand-lg .navbar-nav .nav-link {
-		padding-right: 1rem;
-		padding-left: 1rem;
-	}
-}
-
-@media (max-width: 992px){
-	.navbar-light .navbar-toggler {
-    	background: #fff;
-    	border-radius: 0;
-	}
-	.banner {
-		min-height: 100vh;
-		padding: 100px  0;
-	} 
-	.contentBox h1,
-	.sec2 h2 {
-		font-size: 2.5rem;
-	}
-	.headerText h2 {
-		font-size: 2.5rem;
-	}
-	.sec1 {
-		position: relative;
-	}
-	.content {
-		margin: -100px 0;
-		/*padding: 10px;*/
-	}
-	.sec1 .imgBx {
-		height: 200px;
-	}
-
-	.formulario {
-		padding: 20px 0;
-	}
-	.formulario .form-control {
-		height: 40px;
-		border: 1px solid #fff;
-	}
-	.btnD1 {
-		padding: 10px 40px;
-		margin-top: 10px;
-	}
-	footer {
-		color: #777;
-		font-size: 1.5rem;
-		transition: 0.5s;
-	}
-	.sci li {
-		list-style: none;
-		margin: 0 10px;
-	}
-	.sci li a {
-		color: #777;
-		font-size: 1.5rem;
-		transition: 0.5s;
-	}
-	.sec2 {
-		height: auto;
-		padding: 40px 0;
-	}
-}
+.topmargin-xs {margin-top: 15px; }
+.topmargin-sm {margin-top: 30px; }
+.topmargin-lg {margin-top: 60px; }
