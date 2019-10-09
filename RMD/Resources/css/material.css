@@ -1,0 +1,29 @@
+#material {
+    background: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+}
+
+.inner {
+    overflow: hidden;
+}
+.inner img {
+    padding: 0 auto;
+    width: 350px;
+    height: 250px;
+    -webkit-transition: all 1.5s ease;
+    -moz-transition: all 1.5s ease;
+    transition: all 1.5s ease;
+}
+
+.card-body h5 {
+    color: #000;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+}
+.card-body p {
+    padding-bottom: 10px;
+    text-align: justify;
+    color: black;
+    font-size: 13px
+}

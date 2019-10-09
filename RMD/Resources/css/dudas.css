@@ -1,0 +1,37 @@
+
+.accordion-section h2 {
+    font-family: Arial, Verdana;
+    font-weight: 800;
+    font-size: 2.5rem;
+    color: #091f2f;
+    text-transform: uppercase;
+}
+
+.accordion-section .panel-default > .panel-heading {
+    border-radius: 10px;
+    background: #f4f4f4;
+    padding: 0;
+}
+.accordion-section .panel-default > .panel-heading:hover {
+    box-shadow: 2px 3px 8px #aaaaaa;
+}
+.accordion-section .panel-default .panel-title a {
+    display: block;
+    font-style: italic;
+    font-size: 1rem;
+}
+.accordion-section .panel-default .panel-title a:after {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-size: 2.2rem;
+    content: "\f106";
+    color: #0071BF;
+    float: right;
+    margin-top: -12px;
+}
+.accordion-section .panel-default .panel-title a.collapsed:after {
+    content: "\f107";
+}
+.accordion-section .panel-default .panel-body {
+    font-size: .9rem;
+}
