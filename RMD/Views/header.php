@@ -64,7 +64,7 @@
                             <a data-scroll href="#dudas" class="nav-link">Dudas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#iniciar_sesion">Iniciar Sesion</a>
+                            <a class="nav-link" href="formulario.php">Iniciar Sesion</a>
                         </li>
                     </ul>
                 </div>
