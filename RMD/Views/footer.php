@@ -17,9 +17,9 @@
 </footer>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="Resources/js/jquery-3.4.1.min.js"></script>
-<script src="Resources/js/popper.min.js"></script>
-<script src="Resources/js/bootstrap.min.js"></script>
+<script src="<?=URL?>Resources/js/jquery-3.4.1.min.js"></script>
+<script src="<?=URL?>Resources/js/popper.min.js"></script>
+<script src="<?=URL?>Resources/js/bootstrap.min.js"></script>
 <script type="text/javascript">
         $(document).scroll(function(){
             $('.navbar').toggleClass('scrolled', $(this).scrollTop() > $('.navbar').height());

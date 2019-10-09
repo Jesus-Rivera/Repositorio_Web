@@ -27,7 +27,7 @@
         <div class="col-sm-4">
             <div class="placeBox">
                 <div class="imgBx">
-                    <img src="Resources/img/web.jpg">
+                    <img src="<?=URL?>Resources/img/web.jpg">
                 </div>
                 <div class="content">
                     <h3><span>Tecnologias para la Web</span></h3>
@@ -37,7 +37,7 @@
         <div class="col-sm-4">
             <div class="placeBox">
                 <div class="imgBx">
-                    <img src="Resources/img/ia.jpg">
+                    <img src="<?=URL?>Resources/img/ia.jpg">
                 </div>
                 <div class="content">
                     <h3><span>Inteligencia Artificial</span></h3>
@@ -47,7 +47,7 @@
         <div class="col-sm-4">
             <div class="placeBox">
                 <div class="imgBx">
-                    <img src="Resources/img/base-de-datos.jpg">
+                    <img src="<?=URL?>Resources/img/base-de-datos.jpg">
                 </div>
                 <div class="content">
                     <h3><span>Base de Datos</span></h3>
