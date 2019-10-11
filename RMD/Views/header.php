@@ -20,7 +20,7 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="<?=URL?>Resources/js/jquery-1.10.2.min.js"></script>
 
     <!-- js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -30,10 +30,10 @@
     <!-- <link rel="stylesheet" href="css/jquery.pagepiling.css"> -->
 
     <!-- hoja de estilos propia -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="<?=URL?>Resources/css/main.css">
 
     <!-- icono -->
-    <link rel="shorcut icon" type="img/logo.png" href="img/logo.png">
+    <link rel="shorcut icon" type="<?=URL?>Resources/img/logo.png" href="<?=URL?>Resources/img/logo.png">
 
     <title>RMD</title>
 </head>
@@ -43,7 +43,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo" class="logo-brand"></a>
+                <a class="navbar-brand" href="#"><img src="<?=URL?>Resources/img/logo.png" alt="logo" class="logo-brand"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -64,7 +64,7 @@
                             <a data-scroll href="#dudas" class="nav-link">Dudas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="formulario.php">Iniciar Sesion</a>
+                            <a class="nav-link" href="formulario">Iniciar Sesion</a>
                         </li>
                     </ul>
                 </div>

@@ -8,7 +8,8 @@
 	class Errores extends Controller
 	{
 		/**
-		* Constructor de la clase
+		 * Constructor de la clase
+		 * carga las vistas de la pagina de error 
 		**/	
 		function __construct()
 		{

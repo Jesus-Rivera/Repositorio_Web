@@ -1,8 +1,9 @@
 <?php 
 
 	/**
-	 * 
-	 */
+	 * Clase que genera la vista principal
+	 * @author Jesus Rivera
+	**/
 	class Main extends Controller
 	{
 		/**
@@ -11,18 +12,15 @@
 		function __construct()
 		{
 			parent::__construct();
-			$this->view->load("header.php");
-			$this->view->load("principal.php");
-			$this->view->load("footer.php");
 		}
 
-		function Profesores()
+		/**
+		 * Funcion que carga las vista principal
+		**/
+		function index()
 		{
 			$this->view->load("header.php");
-			
-			//$this->view->load("profesores.php");
-			
-
+			$this->view->load("principal.php");
 			$this->view->load("footer.php");
 		}
 	}

@@ -1,7 +1,7 @@
  <!-- footer -->
     <section id="footer" class="bg-dark section-4">
         <div class="container">
-            <img class="logo-brand" src="img/logo.png" alt="">
+            <img class="logo-brand" src="<?=URL?>Resources/img/logo.png" alt="">
             <ul class="list-inline">
                 <li class="list-inline-item footer-menu"><a href="#inicio">Inicio</a></li>
                 <li class="list-inline-item footer-menu"><a href="#material">Material</a></li>
@@ -9,10 +9,10 @@
                 <li class="list-inline-item footer-menu"><a href="#dudas">Dudas</a></li>
             </ul>
             <ul class="sci">
-                <li><a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="https://twitter.com"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a></li>
-                <li><a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a></li>
+                <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
             </ul>
             <p class="cpryt">
                 <small>© Copyright 2019 RMD</small>
@@ -22,7 +22,7 @@
 
 
     <!-- script para el efecto de las tarjetas de los profesores -->
-    <script src="js/jquery.hover3d.min.js"></script>
+    <script src="<?=URL?>Resources/js/jquery.hover3d.min.js"></script>
     <script>
         $(".hover3d").hover3d({
             selector: ".hover3d-child",
@@ -33,16 +33,6 @@
 
     <!-- Optional JavaScript -->
     <script src="js/jquery.pagepiling.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#pagepiling').pagepiling({
-                navigation: {
-                    'textColor': '#fff',
-                    'bulletsColor': '#fff',
-                    'position': 'right',
-                    'tooltips': ['section1', 'section2', 'section3', 'section4']
-                }
-            });
     </div>
 </div>
 </footer>

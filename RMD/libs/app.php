@@ -23,12 +23,12 @@
 			if (file_exists($direccion)) {
 				require_once($direccion);
 				$controlador = new $url[0];
-
+				$controlador->loadModel($url[0]);
 				if (isset($url[1])) {
-					if(function_exists($url[1]))
-					{
-						$controlador->{$url[1]}();
-					}
+					$controlador->{$url[1]}();
+				}else
+				{
+					$controlador->index();
 				}
 			}
 			else

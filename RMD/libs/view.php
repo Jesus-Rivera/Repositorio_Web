@@ -9,8 +9,8 @@
 		/**
 		* Metodo load
 		* carga una vista en un controlador
-		* @param nombre vista que se cargara
-		**/	
+		* @param string  $nombre vista que se cargara
+		**/
 		function load($nombre)
 		{
 			require 'Views/'.$nombre;
