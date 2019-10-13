@@ -55,8 +55,7 @@
 			$nombre = $_POST['reg-nombre'];
 			$apellido = $_POST['reg-apellido'];
 			$correo = $_POST['reg-correo'];
-			$password = $_POST['reg-pass'];
-			$password_2 = $_POST['reg-rep-pass'];
+			$password = base64_encode($_POST['reg-pass']);
 			
 			$id = "100".$this->model->getLastId() + 1;
 			$fecha_arr = getdate();

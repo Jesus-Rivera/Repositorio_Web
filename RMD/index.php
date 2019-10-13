@@ -1,7 +1,7 @@
 <?php
 
 	/*
-	* 
+	 * Programa que carga todas los archivos necesarios 
 	*/
 	require_once("libs/database.php");
     require_once("config/config.php");
