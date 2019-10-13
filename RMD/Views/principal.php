@@ -9,7 +9,7 @@
             <div class="carousel-inner" role="listbox">
                 <!-- slide 1 -->
                 <div class="carousel-item active">
-                    <img src="img/bg-01.jpg" class="d-block img-fluid" alt="...">
+                    <img src="<?=URL?>img/bg-01.jpg" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption text-center d-none d-block">
                         <h5 class="animated bounceInRight" style="animation-delay: 1s;">Repositorio de material
                             didactico</h5>
@@ -19,7 +19,7 @@
                 </div>
                 <!-- slide 2 -->
                 <div class="carousel-item">
-                    <img src="img/bg-02.jpg" class="d-block img-fluid" alt="...">
+                    <img src="<?=URL?>img/bg-02.jpg" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption text-center d-none d-block">
                         <h5 class="animated fadeInUp" style="animation-delay: 1s;">Second slide label</h5>
                         <p class="animated fadeInUp" style="animation-delay: 2s;">Lorem ipsum dolor sit amet,
@@ -28,7 +28,7 @@
                 </div>
                 <!-- slide 3 -->
                 <div class="carousel-item">
-                    <img src="img/form.jpg" class="d-block img-fluid" alt="...">
+                    <img src="<?=URL?>img/form.jpg" class="d-block img-fluid" alt="...">
                     <div class="carousel-caption text-center d-none d-block">
                         <h5 class="animated zoomIn" style="animation-delay: 1s;">Second slide label</h5>
                         <p class="animated zoomIn" style="animation-delay: 2s;">Lorem ipsum dolor sit amet, consectetur
@@ -61,7 +61,7 @@
                     <div class="card-deck">
                         <div class="card shadow">
                             <div class="inner">
-                                <img class="card-img-top img-responsive" src="img/machine.gif" class="img-fluid"
+                                <img class="card-img-top img-responsive" src="<?=URL?>img/machine.gif" class="img-fluid"
                                     alt="material 1">
                             </div>
                             <div class="card-body text-center">
@@ -78,7 +78,7 @@
                     <div class="card-deck">
                         <div class="card shadow" style="width: 20rem;">
                             <div class="inner">
-                                <img class="card-img-top img-responsive" src="img/android.gif" class="img-fluid"
+                                <img class="card-img-top img-responsive" src="<?=URL?>img/android.gif" class="img-fluid"
                                     alt="material 1">
                             </div>
                             <div class="card-body text-center">
@@ -95,7 +95,7 @@
                     <div class="card-deck">
                         <div class="card shadow" style="width: 20rem;">
                             <div class="inner">
-                                <img class="card-img-top img-responsive" src="img/backend.gif" class="img-fluid"
+                                <img class="card-img-top img-responsive" src="<?=URL?>img/backend.gif" class="img-fluid"
                                     alt="material 1">
                             </div>
                             <div class="card-body text-center">
@@ -112,7 +112,7 @@
                     <div class="card-deck">
                         <div class="card shadow" style="width: 20rem;">
                             <div class="inner">
-                                <img class="card-img-top img-responsive" src="img/Responsive_web.gif" class="img-fluid"
+                                <img class="card-img-top img-responsive" src="<?=URL?>img/Responsive_web.gif" class="img-fluid"
                                     alt="material 1">
                             </div>
                             <div class="card-body text-center">
@@ -143,7 +143,7 @@
                     <div class="hover3d">
                         <div class="hover3d-child">
                             <div class="team-img">
-                                <img src="img/2a.jpg" class="img-responsive" alt="">
+                                <img src="<?=URL?>img/2a.jpg" class="img-responsive" alt="">
                             </div>
                             <div class="info">
                                 <div>
