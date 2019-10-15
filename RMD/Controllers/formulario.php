@@ -37,7 +37,7 @@
 
 			if(strcmp($password,$resultado[4]) == 0)
 			{
-				echo "Contraseña correcta";
+				header('Location: '.URL."principal");
 			}
 			else
 			{
