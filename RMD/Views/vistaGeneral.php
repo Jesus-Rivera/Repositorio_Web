@@ -5,10 +5,12 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<title>RMD</title>
-	<link href="css/bootstrap.css" rel="stylesheet" />
+	<link href="<?=URL?>Resources/css/bootstrap.css" rel="stylesheet" />
+	<link href="<?=URL?>Resources/css/bootstrap.css" rel="stylesheet" />
 
-	<link href="css/pe-icon-7-stroke.css" rel="stylesheet" />
-	<link href="css/ct-navbar.css" rel="stylesheet" />
+	<link href="<?=URL?>Resources/css/pe-icon-7-stroke.css" rel="stylesheet" />
+	<link href="<?=URL?>Resources/css/navbarInicioSesion.css" rel="stylesheet" />
+	<link href="<?=URL?>Resources/css/ct-navbar.css" rel="stylesheet" />
 
 
 	<!--     Font Awesome     -->
@@ -35,7 +37,7 @@
 						</button>
 						<a class="navbar-brand navbar-brand-logo" href="#">
 							<div class="logo">
-								<img src="images/user.png" style="width: 65px;">
+								<img src="<?=URL?>Resources/img/user.png" style="width: 65px;">
 							</div>
 							<div class="brand">Avatar: user1</div>
 						</a>
@@ -81,7 +83,7 @@
 				</div><!-- /.container-fluid -->
 			</nav>
 			<div class="blurred-container">
-				<div class="img-src" style="background-image: url('images/bg.jpg')"></div>
+				<div class="img-src" style="background-image: url('<?=URL?>Resources/img/bg.jpg')"></div>
 			</div>
 		</div><!--  fin navbar -->
 	</div> <!-- fin del menu -->
@@ -199,9 +201,9 @@
 		</div>
 	</section>
 
-	<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
-	<script src="js/bootstrap.js" type="text/javascript"></script>
-	<script src="js/ct-navbar.js"></script>
+	<script src="<?=URL?>Resources/js/jquery-1.10.2.js" type="text/javascript"></script>
+	<script src="<?=URL?>Resources/js/bootstrap.js" type="text/javascript"></script>
+	<script src="<?=URL?>Resources/js/ct-navbar.js"></script>
 
 </body>
 

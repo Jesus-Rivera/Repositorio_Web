@@ -20,9 +20,7 @@
 		function index()
 		{
 
-			$this->view->load("principal/header.php"); 
-			$this->view->load("principal/vistaGeneral.php");
-			$this->view->load("footer.php");
+			$this->view->load("vistaGeneral.php");
 		}
 	}
 ?>
