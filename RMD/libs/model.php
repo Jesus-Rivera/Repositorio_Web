@@ -44,7 +44,7 @@
 		public function select($consulta)
 		{
 			$query = $this->db->connect()->query($consulta);
-			return $query->fetch();
+			return $query;
 		}
 
 	}

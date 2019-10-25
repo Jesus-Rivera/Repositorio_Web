@@ -14,9 +14,9 @@
 		function __construct()
 		{
 			parent::__construct();
-			$this->view->load("header.php");
+			$this->view->load("Inicio/header.php");
 			$this->view->load("error.php");
-			$this->view->load("footer.php");
+			$this->view->load("Inicio/footer.php");
 		}
 	}
 ?>

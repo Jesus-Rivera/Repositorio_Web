@@ -19,11 +19,13 @@
 		**/
 		function index()
 		{
+			session_start();
+			if (isset($_SESSION['ID'])) {
+				header('Location: '.URL."principal");
+			}
 			$this->view->load("formulario.php");
 		}
 
-		//ctruter1@globo.com
-		//NqqiBcANc
 
 		/**
 		 * Funcion que verifica la existencia de un usuario
@@ -33,10 +35,15 @@
 		{
 			$correo = $_POST['correo'];
 			$password = base64_encode($_POST['pass']);
-			$resultado = $this->model->select('SELECT Usuario.idUsuario,Usuario.Nombre,Usuario.Apellido,Usuario.Usuario,Usuario.Password FROM `usuario` WHERE Usuario.Correo = "'.$correo.'"');
-
-			if(strcmp($password,$resultado[4]) == 0)
+			$consulta = $this->model->select('SELECT Usuario.Password,Usuario.idUsuario FROM `usuario` WHERE Usuario.Correo = "'.$correo.'"');
+			while ($row = $consulta->fetch()) {
+				$password_obtenida = $row['Password'];
+				$id_obtenida = $row['idUsuario'];
+			}
+			if(strcmp($password,$password_obtenida) == 0)
 			{
+				session_start();
+				$_SESSION['ID'] = $id_obtenida;
 				header('Location: '.URL."principal");
 			}
 			else
@@ -72,6 +79,9 @@
 			$this->model->insert("alumno",[
 				'Usuario_idUsuario' => $id,
 			]);
+			session_start();
+			$_SESSION['ID'] = $id;
+			header('Location: '.URL."principal");
 		}
 	}
 ?>

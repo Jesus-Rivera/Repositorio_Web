@@ -19,9 +19,9 @@
 		**/
 		function index()
 		{
-			$this->view->load("header.php");
-			$this->view->load("principal.php");
-			$this->view->load("footer.php");
+			$this->view->load("Inicio/header.php");
+			$this->view->load("Inicio/principal.php");
+			$this->view->load("Inicio/footer.php");
 		}
 	}
 ?>
