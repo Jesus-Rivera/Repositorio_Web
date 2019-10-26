@@ -1,3 +1,6 @@
-<?php 	
-	echo "Cuerpo principal de la clase";
- ?>
+
+        
+
+
+
+<?php echo "Vista principal de la sesion" ?>

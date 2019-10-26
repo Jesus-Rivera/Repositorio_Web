@@ -27,11 +27,11 @@
 			unset($datos[3]);
 			if($this->select("SELECT alumno.Usuario_idUsuario FROM `alumno` WHERE alumno.Usuario_idUsuario = ".$id)->fetch())
 			{
-				array_push($datos,"alumno");
+				array_push($datos,"Alumno");
 			} elseif ($this->select("SELECT profesor.Usuario_idUsuario FROM `profesor` WHERE profesor.Usuario_idUsuario = ".$id)->fetch()) {
-				array_push($datos,"profesor");
+				array_push($datos,"Profesor");
 			} elseif ($this->select("SELECT coordinador.Usuario_idUsuario FROM `coordinador` WHERE coordinador.Usuario_idUsuario = ".$id)->fetch()) {
-				array_push($datos, "coordinador");
+				array_push($datos, "Cordinador");
 			}
 			return $datos;
 		}
