@@ -16,7 +16,6 @@
 			$this->loadModel("principal");
 			session_start(); 
 			if (!isset($_SESSION['ID'])) {
-				echo "no existe una sesion";
 				header('Location: '.URL."main");
 			}
 			$datos = $this->model->get_datos($_SESSION['ID']);
@@ -32,6 +31,7 @@
 			}else {
 				define('Direccion',$direccion."_M.png");
 			}
+			define("Valores",$this->model->get_registros());
 		}
 
 		/**
@@ -41,7 +41,11 @@
 		public function index()
 		{
 			$this->view->load("Sesion/header_sesion.php");
-			$this->view->load("Sesion/principal_sesion.php");
+			if (!strcmp(Tipo_Usuario,"Alumno") == 0 && !strcmp(Tipo_Usuario,"Profesor") == 0 ) {
+				$this->view->load("Sesion/principal_sesion.php");
+			}else{
+				$this->view->load("Sesion/MD.php");
+			}
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
@@ -71,19 +75,9 @@
 
 		public function materials()
 		{
+			//"SELECT * FROM archivo ORDER BY archivo.idArchivo DESC LIMIT 6"
 			$this->view->load("Sesion/header_sesion.php");
-			$datos = $this->model->get_material($_SESSION['ID']);
-			define('Material',$datos);
 			$this->view->load("Sesion/MD.php");
-			$this->view->load("Sesion/footer_sesion.php");
-		}
-
-		public function check()
-		{
-			$this->view->load("Sesion/header_sesion.php");
-			$datos = $this->model->get_registrosCP($_SESSION['ID']);
-			define('Usuarios_Reg',$datos);
-			$this->view->load("Sesion/control.php");
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 

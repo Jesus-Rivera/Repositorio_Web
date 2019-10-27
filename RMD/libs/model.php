@@ -47,6 +47,39 @@
 			return $query;
 		}
 
+		public function get_datos($id)
+		{
+			$consulta = $this->select("SELECT Usuario.Nombre as 'Nombre', Usuario.Apellido as 'Apellido', Usuario.Genero as 'Genero', Usuario.Usuario as 'Usuario' FROM `usuario` WHERE Usuario.idUsuario = ".$id);
+
+			while ($row = $consulta->fetch()) {
+				$datos = $row;
+			}
+			for ($i = 0; $i <= (sizeof($datos)/2); $i ++) { 
+				unset($datos[$i]);
+			}
+			unset($datos[3]);
+			if($this->select("SELECT alumno.Usuario_idUsuario FROM `alumno` WHERE alumno.Usuario_idUsuario = ".$id)->fetch())
+			{
+				array_push($datos,"Alumno");
+			} elseif ($this->select("SELECT profesor.Usuario_idUsuario FROM `profesor` WHERE profesor.Usuario_idUsuario = ".$id)->fetch()) {
+				array_push($datos,"Profesor");
+			} elseif ($this->select("SELECT coordinador.Usuario_idUsuario FROM `coordinador` WHERE coordinador.Usuario_idUsuario = ".$id)->fetch()) {
+				array_push($datos, "Coordinador");
+			}
+			return $datos;
+		}
+
+		public function get_registros()
+		{
+			$datos = array();
+			array_push($datos,$this->select("SELECT count(*) FROM coordinador")->fetch()[0]
+				,$this->select("SELECT count(*) FROM alumno")->fetch()[0]
+				,$this->select("SELECT count(*) FROM profesor")->fetch()[0]
+				,$this->select("SELECT count(*) FROM asignatura")->fetch()[0]
+				,$this->select("SELECT count(*) FROM archivo")->fetch()[0]);
+			return $datos;
+		}
+
 	}
 
  ?>

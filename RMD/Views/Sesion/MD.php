@@ -1,31 +1,77 @@
-<?php 
-	foreach (Material as $value) {
-		echo "<br><br>";
-		echo "<br>";
-		echo $value[0];
-		echo "<br>";
-		echo $value[1];
-		echo "<br>";
-		echo $value[2];
-	}
-
- ?>
-
- <script>
-	function ajax() {
-		const http = new XMLHttpRequest();
-		const url = '';
-		http.onreadystatechange = function(){
-			if (this.readyState == 4 && this.status == 200)
-			{
-				//Carga
-			}
-		}
-		http.open("GET",url);
-		http.send();
-	}
-
-	document.getElementById("boton").addEventListener("click",function(){
-		ajax();
-	});
-</script>
+        <section class="full-width header-well">
+            <div class="full-width header-well-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="full-width header-well-text">
+                <p class="text-condensedLight">
+                    Bienvenido al catálogo del repositorio, aqui podras encontrar todos los materiales que han sido subidos por los profesores y coordinadores.
+                </p>
+            </div>
+        </section>
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+            <div class="main">
+                <h3 class="text-center tittles" style=" letter-spacing: 0;">Catalogo</h3>
+                <ul class="cards">
+                    <li class="cards_item">
+                        <div class="card">
+                            <div class="card_image"><img src="https://picsum.photos/500/300/?image=10"></div>
+                            <div class="card_content">
+                                <h2 class="card_title">Título del archivo</h2>
+                                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                                <button class="btn card_btn">Ver Archivo</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_item">
+                        <div class="card">
+                            <div class="card_image"><img src="https://picsum.photos/500/300/?image=5"></div>
+                            <div class="card_content">
+                                <h2 class="card_title">Título del archivo</h2>
+                                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                                <button class="btn card_btn">Ver Archivo</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_item">
+                        <div class="card">
+                            <div class="card_image"><img src="https://picsum.photos/500/300/?image=11"></div>
+                            <div class="card_content">
+                                <h2 class="card_title">Título del archivo</h2>
+                                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                                <button class="btn card_btn">Ver Archivo</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_item">
+                        <div class="card">
+                            <div class="card_image"><img src="https://picsum.photos/500/300/?image=14"></div>
+                            <div class="card_content">
+                                <h2 class="card_title">Título del archivo</h2>
+                                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                                <button class="btn card_btn">Ver Archivo</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_item">
+                        <div class="card">
+                            <div class="card_image"><img src="https://picsum.photos/500/300/?image=17"></div>
+                            <div class="card_content">
+                                <h2 class="card_title">Título del archivo</h2>
+                                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                                <button class="btn card_btn">Ver Archivo</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cards_item">
+                        <div class="card">
+                            <div class="card_image"><img src="https://picsum.photos/500/300/?image=2"></div>
+                            <div class="card_content">
+                                <h2 class="card_title">Card Grid Layout</h2>
+                                <p class="card_text">Demo of pixel perfect pure CSS simple responsive card grid layout</p>
+                                <button class="btn card_btn">Ver Archivo</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
