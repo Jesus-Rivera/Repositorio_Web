@@ -1,4 +1,4 @@
-
+Perfil
 <h2>Nombre: </h2><h4 id = 'name'></h4>
 <h2>Usuario: </h2><h4 id = 'user'></h4>
 <h2>Correo: </h2><h4 id = 'email'></h4>

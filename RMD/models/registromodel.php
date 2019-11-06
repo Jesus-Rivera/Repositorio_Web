@@ -18,7 +18,7 @@
 		public function get_material($id)
 		{
 			$tipo = ((integer)((string)$id)[0] == 2) ? "Coordinador":"Profesor";
-			$consulta = "SELECT asignatura.Nombre as Asignatura,archivo.Nombre as Nombre, archivo.Descripcion as Descripcion, archivo.Ubicacion as Ubicacion FROM (archivo JOIN asignatura ON archivo.Asignatura_idAsignatura = asignatura.idAsignatura) WHERE archivo.".$tipo."_Usuario_idUsuario = ".$id;
+			$consulta = "SELECT asignatura.Nombre as Asignatura,archivo.Nombre as Nombre, archivo.Descripcion as Descripcion, archivo.Ubicacion as Ubicacion, archivo.idArchivo as ID FROM (archivo JOIN asignatura ON archivo.Asignatura_idAsignatura = asignatura.idAsignatura) WHERE archivo.".$tipo."_Usuario_idUsuario = ".$id;
 
 			$query = $this->select($consulta);
 
@@ -26,7 +26,14 @@
 			while ($row = $query->fetch()) {
 				$aux = array();
 				for ($i=0; $i < sizeof($row)/2; $i++) { 
-					array_push($aux,$row[$i]);	
+					array_push($aux,$row[$i]);
+				}
+				if ($this->select('SELECT * FROM video WHERE video.Archivo_idArchivo = '.$row[4])->fetch()){
+					array_push($aux,"Video");
+				}elseif ($this->select('SELECT * FROM documento WHERE documento.Archivo_idArchivo = '.$row[4])->fetch()) {
+					array_push($aux,"Documento");
+				}elseif ($this->select('SELECT * FROM cuestionario WHERE cuestionario.Archivo_idArchivo = '.$row[4])->fetch()) {
+					array_push($aux,"Cuestionario");
 				}
 				array_push($datos,$aux);
 			}

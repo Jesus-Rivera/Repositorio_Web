@@ -5,21 +5,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>RMD</title>
-	<link rel="stylesheet" href="<?=URL?>/Resources/css/normalize.css">
-	<link rel="stylesheet" href="<?=URL?>/Resources/css/sweetalert2.css">
-	<link rel="stylesheet" href="<?=URL?>/Resources/css/material.min.css">
-	<link rel="stylesheet" href="<?=URL?>/Resources/css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="<?=URL?>/Resources/css/jquery.mCustomScrollbar.css">
-
+	<link rel="stylesheet" href="<?=URL?>Resources/css/normalize.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/sweetalert2.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/material.min.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/mensaje.css">
     <link rel="shorcut icon" type="<?=URL?>Resources/img/logo.png" href="<?=URL?>Resources/img/logo.png">
-	<link rel="stylesheet" href="<?=URL?>/Resources/css/mi_main.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/mi_main.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/editePerfil.css">
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?=URL?>/Resources/js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="<?=URL?>/Resources/js/material.min.js"></script>
-	<script src="<?=URL?>/Resources/js/sweetalert2.min.js"></script>
-	<script src="<?=URL?>/Resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="<?=URL?>/Resources/js/main.js"></script>
+	<script src="<?=URL?>Resources/js/material.min.js"></script>
+	<script src="<?=URL?>Resources/js/sweetalert2.min.js"></script>
+	<script src="<?=URL?>Resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="<?=URL?>Resources/js/main.js"></script>
+	<script src="<?=URL?>Resources/js/peticion.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script>
 </head>
 
@@ -115,7 +117,7 @@
 					<li class="text-condensedLight noLink"><small><?=Usuario?></small></li>
 					<li class="noLink">
 						<figure>
-							<img src="<?=URL.'Resources/img/usuario/'.Direccion?>" alt="Avatar" class="img-responsive">
+							<img src="<?=URL.'Resources/img/usuario/'.Direccion?>" alt="Avatar" class="img-responsive" style="border: none;">
 						</figure>
 					</li>
 				</ul>
@@ -147,7 +149,7 @@
 			<nav class="full-width">
 				<ul class="full-width list-unstyle menu-principal">
 					<li class="full-width">
-						<a href="<?=URL."principal"?>" class="full-width">
+						<a href="<?=URL."principal/index"?>" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-view-dashboard"></i>
 							</div>
@@ -169,42 +171,32 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="company.html" class="full-width">
+								<a href="<?=URL."administracion/profile"?>" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-balance"></i>
+										<i class="zmdi zmdi-account"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										PROFESORES
+										Perfil
 									</div>
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="providers.html" class="full-width">
+								<a href="<?=URL."administracion/posts"?>" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-truck"></i>
+										<i class="zmdi zmdi-mail-send"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										PROVIDERS
+										Mensajes
 									</div>
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="payments.html" class="full-width">
+								<a href="<?=URL."administracion/saves"?>" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-card"></i>
+										<i class="zmdi zmdi-widgets"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										PAYMENTS
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="categories.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-label"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										CATEGORIES
+										Material guardado
 									</div>
 								</a>
 							</li>

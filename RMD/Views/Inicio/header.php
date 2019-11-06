@@ -43,7 +43,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#"><img src="<?=URL?>Resources/img/logo.png" alt="logo" class="logo-brand"></a>
+                <a class="navbar-brand" href="<?=URL?>main"><img src="<?=URL?>Resources/img/logo.png" alt="logo" class="logo-brand"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -52,19 +52,25 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a data-scroll href="#inicio" class="nav-link">Inicio</a>
+                            <a data-scroll href="<?=URL?>main" class="nav-link">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a data-scroll href="#material" class="nav-link">Material</a>
+                            <a data-scroll href="<?=URL?>main#material" class="nav-link">Material</a>
                         </li>
                         <li class="nav-item">
-                            <a data-scroll href="#profesores" class="nav-link">Profesores</a>
+                            <a data-scroll href="<?=URL?>main#profesores" class="nav-link">Profesores</a>
                         </li>
                         <li class="nav-item">
-                            <a data-scroll href="#dudas" class="nav-link">Dudas</a>
+                            <a data-scroll href="<?=URL?>main#dudas" class="nav-link">Dudas</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="formulario">Iniciar Sesion</a>
+                            <?php
+                                if (!isset($_SESSION['ID'])) {
+                                    echo '<a class="nav-link" href="formulario">Iniciar Sesion</a>';
+                                }else{
+                                    echo '<a class="nav-link" href="formulario">Ingresar</a>';
+                                }
+                            ?>
                         </li>
                     </ul>
                 </div>

@@ -80,6 +80,29 @@
 			return $datos;
 		}
 
+
+		public function material_rand($cantidad)
+		{
+			$consulta = $this->select("SELECT archivo.idArchivo,archivo.Nombre,archivo.Descripcion FROM archivo ORDER BY RAND() LIMIT ".$cantidad);
+			$datos = array();
+			while ($row = $consulta->fetch()) {
+				$aux = array();
+				for ($i = 0; $i < (sizeof($row)/2); $i ++) { 
+					array_push($aux,$row[$i]);
+				}
+				if ($this->select("SELECT * FROM video WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
+					array_push($aux,"Video");
+				}elseif ($this->select("SELECT * FROM cuestionario WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
+					array_push($aux,"Cuestionario");
+				}elseif ($this->select("SELECT * FROM documento WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
+					array_push($aux,"Documento");
+				}
+
+				array_push($datos,$aux);
+			}
+			return $datos;
+		}
+
 	}
 
  ?>

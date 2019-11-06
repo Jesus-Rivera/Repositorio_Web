@@ -46,6 +46,15 @@
                     <input type="password" class="form-input" name="pass" id="pass">
                     <label class="label" for="pass">Contraseña</label>
                 </div>
+
+                <?php
+                    if (isset($_GET['ERROR'])) {
+                         echo '<div class="input-group">
+                            <label style="color: red;">Datos erroneos</label>
+                        </div>';
+                    }
+                ?>
+
                 <div class="input-group">
                     <input type="submit" class="form-input" value="Iniciar Sesión">
                     <p>No tienes cuenta? <a href="#" class="alt-form">Ingresa aquí</a></p>
@@ -79,12 +88,10 @@
                     <input type="password" class="form-input" name="reg-pass" id="reg-pass">
                     <label class="label" for="reg-pass">Contraseña</label>
                 </div>
-
                 <div class="input-group">
-                    <input type="password" class="form-input" name="reg-rep-pass" id="reg-rep-pass">
-                    <label class="label" for="reg-rep-pass">Repetir Contraseña</label>
+                    <input type="radio" name="gender" value="Male">Hombre<br>
+                    <input type="radio" name="gender" value="Female">Mujer<br>
                 </div>
-
                 <div class="input-group">
                     <input type="submit" class="form-input" value="Registrate">
                     <p>Ya tienes cuenta? <a href="#" class="alt-form">Ingresa aquí</a></p>

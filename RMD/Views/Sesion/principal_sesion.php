@@ -46,13 +46,4 @@
 				</div>
 				<i class="zmdi zmdi-book tile-icon"></i>
 			</article>
-			<article class="full-width tile">
-				<div class="tile-text">
-					<span class="text-condensedLight">
-						47<br>
-						<small>Resportes y Estadisticas</small>
-					</span>
-				</div>
-				<i class="zmdi zmdi-trending-up tile-icon"></i>
-			</article>
 		</section>
