@@ -1,5 +1,17 @@
-	<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-	<div class="edite-box">
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>RMD</title>
+	<link rel="stylesheet" href="<?=URL?>/Resources/css/editePerfil.css">
+	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<div class="login-box">
 		<div class="container avatar">
 			<div class="avatar-upload">
 				<div class="avatar-edit">
@@ -29,8 +41,7 @@
 			<input type="submit" value="Guardar">
 		</form>
 	</div>
-	</div>
-
+	
 	<script>
 
 		function readURL(input) {
@@ -49,3 +60,6 @@
 		});
 
 	</script>
+</body>
+
+</html>
