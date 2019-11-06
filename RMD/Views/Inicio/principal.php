@@ -69,7 +69,7 @@
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis necessitatibus animi
                                     quae quis eveniet, iste magnam voluptatibus doloribus earum autem atque soluta enim
                                     numquam distinctio at doloremque reprehenderit odit sequi.</p>
-                                <a href="#" class="btn btn-success">Ver Material</a>
+                                <a href="<?=URL?>invitado/IA" class="btn btn-success">Ver Material</a>
                             </div>
                         </div>
                     </div>
@@ -82,11 +82,11 @@
                                     alt="material 1">
                             </div>
                             <div class="card-body text-center">
-                                <h5 class="card-title">aplicaciones moviles con android</h5>
+                                <h5 class="card-title">Aplicaciones moviles con android</h5>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque inventore,
                                     asperiores voluptatem sint quaerat pariatur maiores saepe vitae eaque unde explicabo
                                     dicta sed animi, eos obcaecati soluta, aliquid ut repellat.</b></span></p>
-                                <a href="#" class="btn btn-success">Ver Material</a>
+                                <a href="<?=URL?>invitado/Android" class="btn btn-success">Ver Material</a>
                             </div>
                         </div>
                     </div>
@@ -99,11 +99,11 @@
                                     alt="material 1">
                             </div>
                             <div class="card-body text-center">
-                                <h5 class="card-title">base de datos</h5>
+                                <h5 class="card-title">Base de datos</h5>
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos deserunt totam
                                     inventore, laudantium molestiae incidunt ea similique alias perferendis saepe
                                     aperiam in, nisi consectetur ad non optio nemo provident recusandae.</b></span></p>
-                                <a href="#" class="btn btn-success">Ver Material</a>
+                                <a href="<?=URL?>invitado/Database" class="btn btn-success">Ver Material</a>
                             </div>
                         </div>
                     </div>
@@ -116,11 +116,11 @@
                                     alt="material 1">
                             </div>
                             <div class="card-body text-center">
-                                <h5 class="card-title">aplicaciones web</h5>
+                                <h5 class="card-title">Aplicaciones web</h5>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga cupiditate,
                                     exercitationem nemo enim aliquid unde? Maxime vel, obcaecati soluta cupiditate quam
                                     quod ratione consequuntur voluptas quasi quas, harum provident fuga.</p>
-                                <a href="#" class="btn btn-success">Ver Material</a>
+                                <a href="<?=URL?>invitado/Web" class="btn btn-success">Ver Material</a>
                             </div>
                         </div>
                     </div>
@@ -142,24 +142,13 @@
                     <div class="hover3d">
                         <div class="hover3d-child">
                             <div class="team-img">
-                                <img src="<?=URL?>Resources/img/2a.jpg" class="img-responsive" alt="">
+                                <img src="<?=URL."ficheros/usuarios/Coordinador/".First_users[0]."/".First_users[0].".jpg"?>" class="img-responsive" alt="">
                             </div>
                             <div class="info">
                                 <div>
-                                    <h6>Pablo</h6>
-                                    <span>Project Manager</span>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and type setting industry.</p>
-                                    <div class="social">
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-facebook-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-twitter-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </div>
+                                    <h6><?=users[0][0]." ".users[0][1]?></h6>
+                                    <span>Coordinador</span>
+                                    <p><?=users[0][2]."<br>".users[0][3]?></p>
                                 </div>
                             </div>
                         </div>
@@ -169,24 +158,13 @@
                     <div class="hover3d">
                         <div class="hover3d-child">
                             <div class="team-img">
-                                <img src="<?=URL?>Resources/img/now.jpg" class="img-responsive" alt="">
+                                <img src="<?=URL."ficheros/usuarios/Profesor/".First_users[1]."/".First_users[1].".jpg"?>" class="img-responsive" alt="">
                             </div>
                             <div class="info">
                                 <div>
-                                    <h6>Ana</h6>
-                                    <span>Project Manager</span>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and type setting industry.</p>
-                                    <div class="social">
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-facebook-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-twitter-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </div>
+                                    <h6><?=users[1][0]." ".users[1][1]?></h6>
+                                    <span>Profesor</span>
+                                    <p><?=users[1][2]."<br>".users[1][3]?></p>
                                 </div>
                             </div>
                         </div>
@@ -196,24 +174,13 @@
                     <div class="hover3d">
                         <div class="hover3d-child">
                             <div class="team-img">
-                                <img src="<?=URL?>Resources/img/2b.jpg" class="img-responsive" alt="">
+                                <img src="<?=URL."ficheros/usuarios/Coordinador/".First_users[2]."/".First_users[2].".jpg"?>" class="img-responsive" alt="">
                             </div>
                             <div class="info">
                                 <div>
-                                    <h6>Roberto</h6>
-                                    <span>Project Manager</span>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and type setting industry.</p>
-                                    <div class="social">
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-facebook-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-twitter-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </div>
+                                    <h6><?=users[2][0]." ".users[2][1]?></h6>
+                                    <span>Coordinador</span>
+                                    <p><?=users[2][2]."<br>".users[2][3]?></p>
                                 </div>
                             </div>
                         </div>
@@ -223,24 +190,13 @@
                     <div class="hover3d">
                         <div class="hover3d-child">
                             <div class="team-img">
-                                <img src="<?=URL?>Resources/img/ex.jpg" class="img-responsive" alt="">
+                                <img src="<?=URL."ficheros/usuarios/Profesor/".First_users[3]."/".First_users[3].".jpg"?>" class="img-responsive" alt="">
                             </div>
                             <div class="info">
                                 <div>
-                                    <h6>Sara</h6>
-                                    <span>Project Manager</span>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and type setting industry.</p>
-                                    <div class="social">
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-facebook-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-twitter-square"></i>
-                                        </a>
-                                        <a href="#0" class="icon">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </div>
+                                    <h6><?=users[3][0]." ".users[3][1]?></h6>
+                                    <span>Profesor</span>
+                                    <p><?=users[3][2]."<br>".users[3][3]?></p>
                                 </div>
                             </div>
                         </div>

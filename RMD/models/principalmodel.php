@@ -46,21 +46,5 @@
 			array_push($final,$datos);
 			return $final;
 		}
-
-		public function get_inf($id)
-		{
-			$consulta = "SELECT Nombre,Apellido,Usuario,Correo,Telefono,Fecha_Nacimiento,Pais,Estado,Ciudad FROM Usuario WHERE Usuario.idUsuario = ".$id;
-
-			$query = $this->select($consulta)->fetch();
-			$datos = array();
-			for ($i=0; $i < sizeof($query)/2; $i++) { 
-					array_push($datos,$query[$i]);	
-				}
-			$nacimiento = new DateTime($datos[5]);
-		    $hoy = new DateTime();
-		    $datos[5] = $hoy->diff($nacimiento)->y;
-			return json_encode($datos);
-		}
-
 	}
  ?>

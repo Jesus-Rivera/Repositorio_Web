@@ -62,7 +62,7 @@
                                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
                                             <i class="zmdi zmdi-plus"></i>
                                         </button>
-                                        <div class="mdl-tooltip" for="btn-addClient">Add client</div>
+                                        <div class="mdl-tooltip" for="btn-addClient">Agregar</div>
                                     </p>
                                 </form>
                             </div>
@@ -91,7 +91,9 @@
                                 </form>
                                 <div class="mdl-list">
                                     <li class="full-width divider-menu-h"></li>
-									<?php
+
+									<section id="coordinadores">
+                                    <?php
 									for ($i = 0; $i < sizeof(Registros); $i++) {
                                     echo '<div class="mdl-list__item mdl-list__item--two-line">
                                         <span class="mdl-list__item-primary-content">
@@ -104,6 +106,7 @@
                                     </div>
                                     <li class="full-width divider-menu-h"></li>';}
                                     ?>
+                                    </section>
                                 </div>
                             </div>
                         </div>

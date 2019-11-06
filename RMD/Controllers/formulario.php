@@ -39,6 +39,7 @@
 			while ($row = $consulta->fetch()) {
 				$password_obtenida = $row['Password'];
 				$id_obtenida = $row['idUsuario'];
+				$i++;
 			}
 			if(strcmp($password,$password_obtenida) == 0)
 			{
@@ -48,7 +49,7 @@
 			}
 			else
 			{
-				echo "Datos erroneos";
+				header('Location: '.URL."formulario?ERROR=1");
 			}
 		}
 
@@ -63,6 +64,7 @@
 			$apellido = $_POST['reg-apellido'];
 			$correo = $_POST['reg-correo'];
 			$password = base64_encode($_POST['reg-pass']);
+			$genero = $_POST['gender'];
 			
 			$id = "100".$this->model->getLastId() + 1;
 			$fecha_arr = getdate();
@@ -75,6 +77,7 @@
 				'apellido' => $apellido,
 				'correo' => $correo,
 				'password' => $password,
+				'Genero' => $genero,
 			]);
 			$this->model->insert("alumno",[
 				'Usuario_idUsuario' => $id,

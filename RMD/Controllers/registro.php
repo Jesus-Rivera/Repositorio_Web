@@ -20,6 +20,7 @@
 			define('Usuario', $datos["Usuario"]);
 			define('Genero',$datos["Genero"]);
 			define('Tipo_Usuario',$datos[4]);
+			define('Path',URL."ficheros/usuarios/".Tipo_Usuario."/".$_SESSION['ID']."/");
 			$direccion = constant('Tipo_Usuario');
 			if (strcmp(constant('Genero'),"Male") == 0) {
 				define('Direccion',$direccion."_H.png");

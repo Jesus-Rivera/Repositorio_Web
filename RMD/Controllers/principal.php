@@ -24,7 +24,6 @@
 			define('Usuario', $datos["Usuario"]);
 			define('Genero',$datos["Genero"]);
 			define('Tipo_Usuario',$datos[4]);
-
 			$direccion = constant('Tipo_Usuario');
 			if (strcmp(constant('Genero'),"Male") == 0) {
 				define('Direccion',$direccion."_H.png");
@@ -44,6 +43,7 @@
 			if (!strcmp(Tipo_Usuario,"Alumno") == 0 && !strcmp(Tipo_Usuario,"Profesor") == 0 ) {
 				$this->view->load("Sesion/principal_sesion.php");
 			}else{
+				define("catalogo",$this->model->material_rand(9));
 				$this->view->load("Sesion/MD.php");
 			}
 			$this->view->load("Sesion/footer_sesion.php");
@@ -55,37 +55,31 @@
 			header('Location: '.URL."main");
 		}
 
-		public function posts()
-		{
-			$this->view->load("Sesion/header_sesion.php");
-			$datos= $this->model->get_mensajes($_SESSION['ID']);
-			define('mensajes_recibido',$datos[0]);
-			define('mensaje_enviado',$datos[1]);
-			$this->view->load("Sesion/mensajes/mensajes_sesion.php");
-			$this->view->load("Sesion/footer_sesion.php");
-		}
-
-		public function profile()
-		{
-			$this->view->load("Sesion/header_sesion.php");
-			define('Informacion',$this->model->get_inf($_SESSION['ID']));
-			$this->view->load("Sesion/profile.php");
-			$this->view->load("Sesion/footer_sesion.php");
-		}
-
 		public function materials()
 		{
 			//"SELECT * FROM archivo ORDER BY archivo.idArchivo DESC LIMIT 6"
 			$this->view->load("Sesion/header_sesion.php");
+			define("catalogo",$this->model->material_rand(9));
 			$this->view->load("Sesion/MD.php");
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
-		public function new()
+
+		public function consulta()
 		{
-			$this->view->load("Sesion/header_sesion.php");
-			$this->view->load("Sesion/redactar.php");
-			$this->view->load("Sesion/footer_sesion.php");
+			echo 'prueba';
+			if(isset($_POST['material']))
+			{
+				echo $_POST['material'];
+				echo "string";
+				/*$q=$conexion->real_escape_string($_POST['alumnos']);
+				$query="SELECT * FROM alumnos WHERE 
+					id_alumno LIKE '%".$q."%' OR
+					nombre LIKE '%".$q."%' OR
+					carrera LIKE '%".$q."%' OR
+					grupo LIKE '%".$q."%' OR
+					fecha_ingreso LIKE '%".$q."%'";*/
+			}else{echo "ppp";}
 		}
 	}
 ?>
