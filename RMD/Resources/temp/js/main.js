@@ -29,17 +29,16 @@ $(document).ready(function(){
     /*Salir del sistema*/
     $('.btn-exit').on('click', function(){
     	swal({
-		  	title: '¿Desea salir?',
-		 	text: "La sesión se cerrara",
+		  	title: 'You want out of the system?',
+		 	text: "The current session will be closed and will leave the system",
 		  	type: 'warning',
 		  	showCancelButton: true,
-		  	confirmButtonText: 'Si, salir',
-		  	closeOnConfirm: false,
-            cancelButtonText: 'Cancelar'
+		  	confirmButtonText: 'Yes, exit',
+		  	closeOnConfirm: false
 		},
 		function(isConfirm) {
 		  	if (isConfirm) {
-		    	window.location='http://localhost/RepWeb/Repositorio_Web/RMD/principal/sing_off'; 
+		    	window.location='index.html'; 
 		  	}
 		});
     });
