@@ -1,170 +1,89 @@
-body{
-    font-family: 'Darker Grotesque', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #3c424f;
-  }
-  .commentBox{
-    margin-top: 40px;
-    max-width: 700px;
-    padding: 0px 0px 20px 0px;
-    border-radius: 20px;
-    background: #1b212d;
-  }
-  .post{
-    background: #fff;
-    padding: 20px;
-    border-radius: 20px;
-  }
-  .postBody{
-    display: flex;
-  }
-  .postHeader{
-    display: flex;
-    align-items: center;
-  }
-  .publishDate{
-    color: #787878;
-    margin-left: 15px;
-  }
-  .postDesc{
-    margin-top: 15px;
-  }
-  i{
-    color: #fc6f20;
-    padding-right: 5px;
-  }
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: #28223F; */
+  font-family: Montserrat, sans-serif;
   
-  .fa-heart:hover::after{
-    position: absolute;
-      margin-top: -4px;
-      margin-left: -20px;
-      content: "❤";
-      font-size: 24px;
-      opacity: 1;
-      animation: hearts .7s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+h3 {
+  margin: 10px 0;
+}
+
+h6 {
+  margin: 5px 0;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+}
+
+.card-container {
     
-  } 
-  @keyframes hearts {
-      0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-  
-  .postText{
-    font-weight: 500;
-  }
-  .desc{
-    margin-right: 20px;
-  }
-  .comment{
-    padding: 10px;
-    margin: 20px 30px;
-    color: #fff;
-  }
-  form{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  h2{
-    margin:0;
-    margin-bottom: 5px;
-  }
-  h3{
-    margin:0;
-  }
-  input{
-    font-family: 'Darker Grotesque', sans-serif;
-    font-size: 18px;
-    border-radius: 15px;
-    border: 1px solid #787878;
-    padding: 5px 5px 5px 10px;
-    transition: 0.2s;
-  }
-  input:focus{
-    outline: none;
-    border: 1px solid #fc6f20;
-  }
-  input::placeholder{
-    color: #bebebe;
-  }
-  textarea{
-    font-family: 'Darker Grotesque', sans-serif;
-    margin-top: 10px;
-    border-radius: 15px;
-    border: 1px solid #787878;
-    padding: 5px 5px 5px 10px;
-    height: 70px;
-    transition: 0.2s;
-    box-sizing: border-box;
-    resize: none;
-  }
-  textarea:focus{
-    outline: none;
-    border: 1px solid #fc6f20;
-  }
-  textarea::placeholder{
-    color: #bebebe;
-  }
-  button{
-    font-family: 'Darker Grotesque', sans-serif;
-    color: #054231;
-    width: 160px;
-    color: #fff;
-    font-size: 18px;
-    padding: 10px;
-    padding-top: 7px;
-    transition: 0.5s;
-    cursor: pointer;
-    border-radius: 15px;
-    border: none;
-    background: #fc6f20;
-    margin-top: 20px;
-    box-shadow: 0px 5px 0px 0px #fc6f207a;
-  }
-  button:hover{
-    box-shadow: none;
-    transform: translateY(5px);
-    transition: all .1s linear;
-  }
-  button:focus{
-    outline: none;
-  }
-  img{
-    max-width: 90px;
-    width: 100%;
-    height: 100%;
-    margin-right: 15px;
-    border-radius: 10px;
-  }
-  .comment{
-    display: flex;
-  }
-  .commentPic{
-    max-width: 45px;
-    max-height: 45px;
-  }
-  .commentHeader{
-    display: flex;
-    align-items: center;
-  }
-  .commentBody{
-    max-width: 580px;
-    overflow-wrap: break-word;
-  }
-  .fa-instagram{
-    position: absolute;
-    color: #fc6f20;
-    top: 3%;
-    right: 2%;
-    font-size: 38px;
-  }
-  .fa-instagram:hover{
-    font-size: 42px;
-    color: #fff;
-    transition: all .1s linear;
-    cursor: pointer;
-  }
-  
-  
+  background-color: #231E39;
+  border-radius: 5px;
+  box-shadow: 0px 10px 20px -10px rgba(0,0,0,0.75);
+  color: #B3B8CD;
+  padding-top: 30px;
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.card-container .round {
+  border: 1px solid #03BFCB;
+  border-radius: 50%;
+    padding: 7px;
+    width: 170px;
+}
+
+button.primary {
+  background-color: #03BFCB;
+  border: 1px solid #03BFCB;
+  border-radius: 3px;
+  color: #231E39;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  padding: 10px 25px;
+}
+
+button.primary.ghost {
+  background-color: transparent;
+  color: #02899C;
+}
+
+.skills {
+  background-color: #1F1A36;
+  text-align: left;
+  padding: 15px;
+  margin-top: 30px;
+}
+
+.skills ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.skills ul li {
+  border: 2px solid #2D2747;
+  border-radius: 14px;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0 7px 7px 0;
+  padding: 8px;
+}
