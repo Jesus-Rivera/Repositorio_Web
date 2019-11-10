@@ -21,42 +21,46 @@
                                 Nuevo Coordinador
                             </div>
                             <div class="full-width panel-content">
-                                <form>
+                                <form method="POST" action="<?=URL?>registro/coordinador_register">
                                     <h5 class="text-condensedLight">Datos del Coordinador</h5>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient">
+                                        <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" id="DNIClient" name="Matricula">
                                         <label class="mdl-textfield__label" for="DNIClient">Matricula</label>
                                         <span class="mdl-textfield__error">No valido</span>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient">
+                                        <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="NameClient" name="Nombre">
                                         <label class="mdl-textfield__label" for="NameClient">Nombre(s)</label>
                                         <span class="mdl-textfield__error">No valido</span>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameClient">
+                                        <input class="mdl-textfield__input" type="text" pattern="-?[A-Za-záéíóúÁÉÍÓÚ ]*(\.[0-9]+)?" id="LastNameClient" name="Apellido">
                                         <label class="mdl-textfield__label" for="LastNameClient">Apellidos</label>
                                         <span class="mdl-textfield__error">No valido</span>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="addressClient1">
+                                        <input class="mdl-textfield__input" type="text" id="addressClient1" name="Titulo">
                                         <label class="mdl-textfield__label" for="addressClient1">Título Académico</label>
                                         <span class="mdl-textfield__error">No valido</span>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="text" id="addressClient2">
+                                        <input class="mdl-textfield__input" type="text" id="addressClient2" name="Escuela">
                                         <label class="mdl-textfield__label" for="addressClient2">Escuela de Procedencia</label>
                                         <span class="mdl-textfield__error">No valido</span>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient">
+                                        <input class="mdl-textfield__input" type="tel" pattern="-?[0-9+()- ]*(\.[0-9]+)?" id="phoneClient" name="Telefono">
                                         <label class="mdl-textfield__label" for="phoneClient">Phone</label>
                                         <span class="mdl-textfield__error">No valido</span>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input class="mdl-textfield__input" type="email" id="emailClient">
+                                        <input class="mdl-textfield__input" type="email" id="emailClient" name="Correo">
                                         <label class="mdl-textfield__label" for="emailClient">E-mail</label>
                                         <span class="mdl-textfield__error">No valido</span>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        <input type="radio" name="gender" value="Male">Hombre<br>
+                                        <input type="radio" name="gender" value="Female">Mujer<br>
                                     </div>
                                     <p class="text-center">
                                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">

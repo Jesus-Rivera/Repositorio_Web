@@ -41,7 +41,7 @@
 		public function profesor()
 		{
 			$this->view->load("Sesion/header_sesion.php");
-			define("Registros",$this->model->get_registro_coordinador($_SESSION['ID']));
+			define("Registros",$this->model->get_registro_profesor($_SESSION['ID']));
 			$this->view->load("registros/profesor.php");
 			$this->view->load("Sesion/footer_sesion.php");
 		}
@@ -54,13 +54,57 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		public function coordinador_register()
+		{
+			$datos_usuario = [
+				"Correo" => $_POST['Correo'],
+				"Nombre" => $_POST['Nombre'],
+				"Apellido" => $_POST['Apellido'],
+				"Telefono" => $_POST['Telefono'],
+				"Genero" => $_POST['gender'],
+			];
+			$datos_academicos = [
+				"Matricula" => $_POST['Matricula'],
+				"Nivel" => $_POST['Titulo'],
+				"Escuela" => $_POST['Escuela'],
+			];
+			$this->model->Registro_ProfCoord(2,$datos_usuario,$datos_academicos);
+			
+		}
+
+		public function profesor_register()
+		{
+			$datos_usuario = [
+				"Correo" => $_POST['Correo'],
+				"Nombre" => $_POST['Nombre'],
+				"Apellido" => $_POST['Apellido'],
+				"Telefono" => $_POST['Telefono'],
+				"Genero" => $_POST['gender'],
+			];
+			$datos_academicos = [
+				"Matricula" => $_POST['Matricula'],
+				"Nivel" => $_POST['Titulo'],
+				"Escuela" => $_POST['Escuela'],
+			];
+			$this->model->Registro_ProfCoord(3,$datos_usuario,$datos_academicos);
+		}
+		
+
 		public function archivo()
 		{
 			$this->view->load("Sesion/header_sesion.php");
 			define('Material',$this->model->get_material($_SESSION['ID']));
 			define('Categoria',$this->model->get_asignaturas());
+			define('Tipo',$this->model->get_tipo());
 			$this->view->load("registros/archivo.php");
 			$this->view->load("Sesion/footer_sesion.php");
+		}
+
+		public function upload()
+		{
+			$aux = ((integer)((string)$_SESSION['ID'])[0] == 2) ? "Coordinador":"Profesor";
+			$dir_subida = 'ficheros/usuarios/'.$aux."/".$_SESSION['ID']."/";
+			$this->model->save_Material($_POST,$_FILES,$dir_subida);
 		}
 
 	}

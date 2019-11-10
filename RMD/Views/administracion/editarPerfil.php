@@ -4,14 +4,14 @@
 <head>
 	<meta charset="utf-8">
 	<title>RMD</title>
-	<link rel="stylesheet" href="<?=URL?>/Resources/css/editePerfil.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/editePerfil.css">
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-	<div class="login-box">
+	<div class="edite-box">
 		<div class="container avatar">
 			<div class="avatar-upload">
 				<div class="avatar-edit">
@@ -19,7 +19,7 @@
 					<label for="imageUpload"></label>
 				</div>
 				<div class="avatar-preview">
-					<div id="imagePreview" style="background-image: url('img/2a.jpg');"></div>
+					<div id="imagePreview" style="background-image: url('<?=URL?>Resources/img/2a.jpg');"></div>
 				</div>
 			</div>
 		</div>

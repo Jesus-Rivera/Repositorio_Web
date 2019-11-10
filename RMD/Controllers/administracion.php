@@ -55,10 +55,10 @@
 
 		public function edite_profile()
 		{
-			$this->view->load("Sesion/header_sesion.php");
+			//$this->view->load("Sesion/header_sesion.php");
 			define('Informacion',$this->model->get_inf($_SESSION['ID']));
 			$this->view->load("administracion/editarPerfil.php");
-			$this->view->load("Sesion/footer_sesion.php");
+			//$this->view->load("Sesion/footer_sesion.php");
 		}
 
 		public function new()

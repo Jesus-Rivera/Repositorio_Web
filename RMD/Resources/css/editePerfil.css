@@ -6,13 +6,14 @@ body {
 }
 
 .edite-box {
+  padding-top: 200px;
   width: 420px;
   height: 510px;
   background: #000;
   color: #fff;
-  top: 20%;
+  top: 70%;
   left: 50%;
-  position: relative;
+  position: absolute;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
   padding: 70px 30px;
