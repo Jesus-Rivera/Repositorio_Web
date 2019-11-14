@@ -3,37 +3,28 @@
             <div class="full-width header-well-icon">
                 <i class="fas fa-file-pdf"></i>
             </div>
-            <div class="full-width header-well-text">
-                <p class="text-condensedLight">
-                    <?php 
-                        echo Datos[0]."<br><br>".Datos[2]."<br><br>".Datos[1];
-                    ?>
-                </p>
-                        
-            </div>
         </section>
         <pre>
             Autor:
             <?php 
                 echo Datos[5]." ".Datos[6]."
-                ".Datos[7];
+                ".'<a href="'.URL.'material/profile?id='.Datos[4].'">'.Datos[7].'</a>';
             ?>
         </pre>
         <hr>
         <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect"></div>
-        <div id="Iframe-Cicis-Menu-To-Go" class="set-margin-cicis-menu-to-go set-padding-cicis-menu-to-go set-border-cicis-menu-to-go set-box-shadow-cicis-menu-to-go center-block-horiz">
-            <div class="responsive-wrapper 
-				   responsive-wrapper-padding-bottom-90pct" style="-webkit-overflow-scrolling: touch; overflow: auto;">
-                <iframe src="file:///C:/xampp/htdocs/RepWeb/Repositorio_Web/RMD/ficheros/usuarios/<?=Datos[8]."/".Datos[4]."/".Datos[3]?>" allowFullScreen>
-                </iframe>
-            </div>
+        <p class="text-condensedLight">
+            <?php 
+                echo Datos[0]."<br><br>".Datos[2]."<br><br>".Datos[1];
+            ?>
+        </p>
 
         </div>
         <div class="contenedor-boton">
             <?php 
                 if (isset($_SESSION['ID'])) {
                     echo '<button class="button download">Descargar</button>
-                           <button class="button save">Guardar</button>';
+                           <a href="'.URL."material/save?archivo=".$_GET['id']."&usuario=".$_SESSION['ID'].'"><button class="button save">Guardar</button></a>';
                     if ($_SESSION['ID'] == Datos[4]) {
                         echo ' <button class="button delete">Eliminar</button>';
                     }

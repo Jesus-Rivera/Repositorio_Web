@@ -101,6 +101,19 @@
 			header('Location: '.URL."material/view?id=".$_GET['id']);
 		}
 
+		public function save()
+		{
+			if (!isset($this->model->select("SELECT * FROM archivo_guardado WHERE archivo_guardado.Usuario_idUsuario = ".$_GET['usuario']." && archivo_guardado.Archivo_idArchivo= ".$_GET['archivo'])->fetch()[0])) {
+				$fecha = getdate();
+				$fecha_ingresar = $fecha['year']."-".$fecha['mon']."-".$fecha['mday']." ".$fecha['hours'].":".$fecha['minutes'].":".$fecha['seconds'];
+				$this->model->insert("archivo_guardado",[
+					'Usuario_idUsuario' => $_GET['usuario'],
+					'Archivo_idArchivo' => $_GET['archivo'],
+					'Fecha' => $fecha_ingresar,
+				]);
+			}
+			header('Location: '.URL."material/view?id=".$_GET['archivo']);	
+		}
 	}
 
 ?>
