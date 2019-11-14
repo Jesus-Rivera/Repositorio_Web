@@ -8,7 +8,7 @@
                             echo '
                             <li class="cards_item">
                                 <div class="card">
-                                    <div class="card_image"><img src="'.URL.'Resources/img/material/'.$value[3].".gif".'" width="350" height="400"></div>
+                                    <a href="'.URL.'material/view?id='.$value[0].'"><div class="card_image"><img src="'.URL.'Resources/img/material/'.$value[3].".gif".'" width="350" height="400"></div></a>
                                     <div class="card_content">
                                         <h2 class="card_title">'.substr($value[2],0,15).'</h2>
                                         <p class="card_text">'.substr($value[2],0,30)."...".'</p>

@@ -45,22 +45,6 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
-		public function profile()
-		{
-			$this->view->load("Sesion/header_sesion.php");
-			define('Informacion',$this->model->get_inf($_SESSION['ID']));
-			$this->view->load("administracion/Perfil.php");
-			$this->view->load("Sesion/footer_sesion.php");
-		}
-
-		public function edite_profile()
-		{
-			//$this->view->load("Sesion/header_sesion.php");
-			define('Informacion',$this->model->get_inf($_SESSION['ID']));
-			$this->view->load("administracion/editarPerfil.php");
-			//$this->view->load("Sesion/footer_sesion.php");
-		}
-
 		public function new()
 		{
 			$this->view->load("Sesion/header_sesion.php");
@@ -86,6 +70,11 @@
 		{
 			$this->view->load("Sesion/header_sesion.php");
 			define("Remitente",$this->model->get_mensaje_remitente($_GET['msg']));
+			if (strcmp(Remitente[5],"Male") == 0) {
+					define('Direccion_picture',Remitente[8]."_H.png");
+				}else {
+					define('Direccion_picture',Remitente[8]."_M.png");
+				}
 			$this->view->load("administracion/lectura.php");
 			$this->view->load("Sesion/footer_sesion.php");
 		}

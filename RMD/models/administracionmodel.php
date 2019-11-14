@@ -49,21 +49,6 @@
 			return $final;
 		}
 
-		public function get_inf($id)
-		{
-			$consulta = "SELECT Nombre,Apellido,Usuario,Correo,Telefono,Fecha_Nacimiento,Pais,Estado,Ciudad FROM Usuario WHERE Usuario.idUsuario = ".$id;
-
-			$query = $this->select($consulta)->fetch();
-			$datos = array();
-			for ($i=0; $i < sizeof($query)/2; $i++) { 
-					array_push($datos,$query[$i]);	
-				}
-			$nacimiento = new DateTime($datos[5]);
-		    $hoy = new DateTime();
-		    $datos[5] = $hoy->diff($nacimiento)->y;
-			return json_encode($datos);
-		}
-
 		public function material_guardado($id)
 		{
 			$consulta = $this->select("SELECT archivo.idArchivo,archivo.Nombre,archivo.Descripcion FROM (archivo JOIN archivo_guardado ON archivo.idArchivo = archivo_guardado.Archivo_idArchivo) WHERE archivo_guardado.Usuario_idUsuario = ".$id);
@@ -88,7 +73,7 @@
 
 		public function get_mensaje_remitente($id)
 		{
-			$consulta = $this->select("SELECT Usuario.idUsuario,Usuario.Nombre,Usuario.Apellido,usuario.Usuario,Usuario.Correo FROM (mensaje_enviado JOIN usuario ON mensaje_enviado.Usuario_idUsuario = usuario.idUsuario) WHERE mensaje_enviado.Mensaje_idMensaje = ".$id)->fetch();
+			$consulta = $this->select("SELECT Usuario.idUsuario,Usuario.Nombre,Usuario.Apellido,usuario.Usuario,Usuario.Correo,Usuario.Genero FROM (mensaje_enviado JOIN usuario ON mensaje_enviado.Usuario_idUsuario = usuario.idUsuario) WHERE mensaje_enviado.Mensaje_idMensaje = ".$id)->fetch();
 			$datos = array();
 			for ($i = 0; $i < sizeof($consulta)/2; $i++) { 
 				array_push($datos,$consulta[$i]);
@@ -98,6 +83,17 @@
 
 			for ($i = 0; $i < sizeof($consulta)/2; $i++) { 
 				array_push($datos,$consulta[$i]);
+			}
+
+
+
+			 if($this->select("SELECT alumno.Usuario_idUsuario FROM `alumno` WHERE alumno.Usuario_idUsuario = ".$datos[0])->fetch())
+			{
+				array_push($datos,"Alumno");
+			} elseif ($this->select("SELECT profesor.Usuario_idUsuario FROM `profesor` WHERE profesor.Usuario_idUsuario = ".$datos[0])->fetch()) {
+				array_push($datos,"Profesor");
+			} elseif ($this->select("SELECT coordinador.Usuario_idUsuario FROM `coordinador` WHERE coordinador.Usuario_idUsuario = ".$datos[0])->fetch()) {
+				array_push($datos,"Coordinador");
 			}
 
 			return $datos;

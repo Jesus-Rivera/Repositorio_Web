@@ -14,9 +14,12 @@
     <link rel="shorcut icon" type="<?=URL?>Resources/img/logo.png" href="<?=URL?>Resources/img/logo.png">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/mi_main.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/editePerfil.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/perfilStyle.css">
+    <link rel="stylesheet" href="<?=URL?>Resources/css/styleVistaArchivo.css">
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?=URL?>/Resources/js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="https://kit.fontawesom.com/f8b2926d66.js" crossorigin="anonymous"></script>
 	<script src="<?=URL?>Resources/js/material.min.js"></script>
 	<script src="<?=URL?>Resources/js/sweetalert2.min.js"></script>
 	<script src="<?=URL?>Resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -171,7 +174,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="<?=URL."administracion/profile"?>" class="full-width">
+								<a href="<?=URL."material/profile?id=".$_SESSION['ID']?>" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-account"></i>
 									</div>

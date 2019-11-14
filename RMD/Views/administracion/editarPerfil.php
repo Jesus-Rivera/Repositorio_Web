@@ -4,12 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Company</title>
-	<link rel="stylesheet" href="<?=URL?>Resourcescss/normalize.css">
-	<link rel="stylesheet" href="<?=URL?>Resourcescss/sweetalert2.css">
-	<link rel="stylesheet" href="<?=URL?>Resourcescss/material.min.css">
-	<link rel="stylesheet" href="<?=URL?>Resourcescss/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="<?=URL?>Resources/css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" href="<?=URL?>Resourcescss/main.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/temp/css/normalize.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/temp/css/sweetalert2.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/temp/css/material.min.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/temp/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/temp/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/temp/css/main.css">
 	
 	<link rel="stylesheet" href="<?=URL?>Resources/css/editePerfil.css">
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
@@ -18,11 +18,11 @@
 
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="js/material.min.js" ></script>
-	<script src="js/sweetalert2.min.js" ></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
-	<script src="js/main.js" ></script>
+	<script>window.jQuery || document.write('<script src="<?=URL?>Resources/temp/js/jquery-1.11.2.min.js"><\/script>')</script>
+	<script src="<?=URL?>Resources/temp/js/material.min.js" ></script>
+	<script src="<?=URL?>Resources/temp/js/sweetalert2.min.js" ></script>
+	<script src="<?=URL?>Resources/temp/js/jquery.mCustomScrollbar.concat.min.js" ></script>
+	<script src="<?=URL?>Resources/temp/js/main.js" ></script>
 </head>
 <body>
 	<!-- Notifications area -->
@@ -111,7 +111,7 @@
 					<li class="text-condensedLight noLink" ><small>User Name</small></li>
 					<li class="noLink">
 						<figure>
-							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+							<img src="<?=URL?>Resources/temp/assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 						</figure>
 					</li>
 				</ul>
@@ -127,7 +127,7 @@
 			</div>
 			<figure class="full-width" style="height: 77px;">
 				<div class="navLateral-body-cl">
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					<img src="<?=URL?>Resources/temp/assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
 					<span>
@@ -324,7 +324,7 @@
 											<label for="imageUpload"></label>
 										</div>
 										<div class="avatar-preview">
-											<div id="imagePreview" style="background-image: url('img/2a.jpg');"></div>
+											<div id="imagePreview" style="background-image: url('<?=URL?>Resources/img/2a.jpg');"></div>
 										</div>
 									</div>
 								</div>

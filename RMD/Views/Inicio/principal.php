@@ -141,9 +141,10 @@
                 <div class="item col-md-3">
                     <div class="hover3d">
                         <div class="hover3d-child">
-                            <div class="team-img">
+                            <a href="<?=URL."material/profile?id=".First_users[0]?>">
+                                <div class="team-img">
                                 <img src="<?=URL."ficheros/usuarios/Coordinador/".First_users[0]."/".First_users[0].".jpg"?>" class="img-responsive" alt="">
-                            </div>
+                            </div></a>
                             <div class="info">
                                 <div>
                                     <h6><?=users[0][0]." ".users[0][1]?></h6>
@@ -157,9 +158,10 @@
                 <div class="item col-md-3">
                     <div class="hover3d">
                         <div class="hover3d-child">
+                            <a href="<?=URL."material/profile?id=".First_users[1]?>">
                             <div class="team-img">
                                 <img src="<?=URL."ficheros/usuarios/Profesor/".First_users[1]."/".First_users[1].".jpg"?>" class="img-responsive" alt="">
-                            </div>
+                            </div></a>
                             <div class="info">
                                 <div>
                                     <h6><?=users[1][0]." ".users[1][1]?></h6>
@@ -173,9 +175,10 @@
                 <div class="item col-md-3">
                     <div class="hover3d">
                         <div class="hover3d-child">
+                            <a href="<?=URL."material/profile?id=".First_users[2]?>">
                             <div class="team-img">
                                 <img src="<?=URL."ficheros/usuarios/Coordinador/".First_users[2]."/".First_users[2].".jpg"?>" class="img-responsive" alt="">
-                            </div>
+                            </div></a>
                             <div class="info">
                                 <div>
                                     <h6><?=users[2][0]." ".users[2][1]?></h6>
@@ -189,9 +192,10 @@
                 <div class="item col-md-3">
                     <div class="hover3d">
                         <div class="hover3d-child">
+                            <a href="<?=URL."material/profile?id=".First_users[3]?>">
                             <div class="team-img">
                                 <img src="<?=URL."ficheros/usuarios/Profesor/".First_users[3]."/".First_users[3].".jpg"?>" class="img-responsive" alt="">
-                            </div>
+                            </div></a>
                             <div class="info">
                                 <div>
                                     <h6><?=users[3][0]." ".users[3][1]?></h6>

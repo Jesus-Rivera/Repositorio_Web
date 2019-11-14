@@ -3,7 +3,11 @@
       <h1></h1>
 
       <div class="form-group">
-        <input type="text" required="required" name="Destinatario"/>
+        <input type="text" required="required" name="Destinatario" <?php
+          if (isset($_GET['user'])) {
+            echo 'value="'.$_GET['user'].'"';
+          }
+          ?>/>
         <label for="input" class="control-label">Destinatario</label><i class="bar"></i>
       </div>
 
