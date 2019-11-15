@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="<?=URL?>Resources/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="<?=URL?>Resources/css/mi_main.css">
     <link rel="stylesheet" href="<?=URL?>Resources/css/perfilStyle.css">
-    <link rel="alternate" href="<?=URL?>Resources/css/styleVistaArchivo.css">  <!-- hoja de estilos para la vista del archivo -->
+    <link rel="stylesheet" href="<?=URL?>Resources/css/styleVistaArchivo.css">
     <script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>

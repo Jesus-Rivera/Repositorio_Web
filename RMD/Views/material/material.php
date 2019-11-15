@@ -1,7 +1,7 @@
 
         <section class="full-width header-well">
             <div class="full-width header-well-icon">
-                <i class="fas fa-file-pdf"></i>
+                <?=imagen?>
             </div>
         </section>
         <pre>
@@ -32,22 +32,28 @@
             ?>
         </div>
         <hr>
+        
         <!-- seccion de comentarios -->
         <h1>Sección de comentarios</h1>
-        <form method="post" action="<?=URL.'material/new_comment?id='.$_GET['id']?>">
-          <label for="textarea"></label>
-          <center>
-            <p>
-              <textarea required name="comentario" cols="50" rows="5" id="textarea"></textarea>
-            </p>
-            <p>
-              <input class="bubbly-button" type="submit" name="comentar" value="Comentar">
-            </p>
-          </center>
-        </form>
+        <?php
+            if (isset($_SESSION['ID'])) {
+                echo '
+                <form method="post" action="'.URL.'material/new_comment?id='.$_GET['id'].'">
+                  <label for="textarea"></label>
+                  <center>
+                    <p>
+                      <textarea required name="comentario" cols="50" rows="5" id="textarea"></textarea>
+                    </p>
+                    <p>
+                      <input class="bubbly-button" type="submit" name="comentar" value="Comentar">
+                    </p>
+                  </center>
+                </form>';
+            }
+        ?>
 
 
-        <div id="container">
+    <div id="container">
       <ul id="comments">
         <?php 
             foreach (Comentarios as $value) {
@@ -71,23 +77,3 @@
         ?>
       </ul>
     </div>
-<!-- 
-    iconos para los archivos
-
-    video
-        <i class="fas fa-file-video"></i>
-    
-    doc
-        <i class="fas fa-file-word"></i>
-    
-    ppt
-        <i class="fas fa-file-powerpoint"></i>
-    
-    xls
-        <i class="fas fa-file-excel"></i>
-    
-    jpg
-        <i class="fas fa-file-image"></i>
-
-
--->

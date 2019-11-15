@@ -65,11 +65,10 @@
 
 		public function view()
 		{
-			
-			//echo $_GET['id'];
 			if (isset($_GET['id'])) {
 				define("Datos",$this->model->get_material_datos($_GET['id']));
 				define("Comentarios",$this->model->get_Comentarios($_GET['id']));
+
 				if (isset($_SESSION['ID'])) {
 					$this->view->load("Sesion/header_sesion.php");
 					$this->view->load("material/material.php");
@@ -77,6 +76,26 @@
 				}
 				else{
 					$this->view->load("invitado/header_invitado.php");
+					switch (substr(Datos[3],-3)) {
+						case 'doc':
+							define('imagen','<i class="fas fa-file-word"></i>');
+						break;
+						case 'ppt':
+							define('imagen','<i class="fas fa-file-powerpoint"></i>');
+						break;
+						case 'xls':
+							define('imagen','<i class="fas fa-file-excel"></i>');
+						break;
+						case 'jpg':
+							define('imagen','<i class="fas fa-file-image"></i>');
+						break;
+						case 'pdf':
+							define('imagen','<i class="fas fa-file-pdf"></i>');
+						break;
+						default:
+							define('imagen','<i class="fas fa-file-video"></i>');
+						break;
+					}
 					$this->view->load("material/material.php");
 					$this->view->load("invitado/footer_invitado.php");
 				}
