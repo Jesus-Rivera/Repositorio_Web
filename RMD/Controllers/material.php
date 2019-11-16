@@ -68,15 +68,7 @@
 			if (isset($_GET['id'])) {
 				define("Datos",$this->model->get_material_datos($_GET['id']));
 				define("Comentarios",$this->model->get_Comentarios($_GET['id']));
-
-				if (isset($_SESSION['ID'])) {
-					$this->view->load("Sesion/header_sesion.php");
-					$this->view->load("material/material.php");
-					$this->view->load("Sesion/footer_sesion.php");
-				}
-				else{
-					$this->view->load("invitado/header_invitado.php");
-					switch (substr(Datos[3],-3)) {
+				switch (substr(Datos[3],-3)) {
 						case 'doc':
 							define('imagen','<i class="fas fa-file-word"></i>');
 						break;
@@ -96,6 +88,13 @@
 							define('imagen','<i class="fas fa-file-video"></i>');
 						break;
 					}
+				if (isset($_SESSION['ID'])) {
+					$this->view->load("Sesion/header_sesion.php");
+					$this->view->load("material/material.php");
+					$this->view->load("Sesion/footer_sesion.php");
+				}
+				else{
+					$this->view->load("invitado/header_invitado.php");
 					$this->view->load("material/material.php");
 					$this->view->load("invitado/footer_invitado.php");
 				}

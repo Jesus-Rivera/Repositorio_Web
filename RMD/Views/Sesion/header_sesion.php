@@ -19,7 +19,7 @@
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?=URL?>/Resources/js/jquery-1.11.2.min.js"><\/script>')</script>
-	<script src="https://kit.fontawesom.com/f8b2926d66.js" crossorigin="anonymous"></script>
+	
 	<script src="<?=URL?>Resources/js/material.min.js"></script>
 	<script src="<?=URL?>Resources/js/sweetalert2.min.js"></script>
 	<script src="<?=URL?>Resources/js/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -284,28 +284,3 @@
 	</section>
 	<!-- pageContent -->
 	<section class="full-width pageContent">
-
-		<?php
-	/*switch (Tipo_Usuario) {
-	 	case 'Alumno':
-	 		echo "<a href='".URL."principal/posts"."'>Mensajes</a><br>";
-	 		echo "<a href='".URL."principal/profile"."'>Perfil</a><br>";
-	 		echo "<a href='".URL."principal/sing_off"."'>Cerrar sesion</a> <br>";
-	 	break;
-
-	 	case 'Profesor':
-	 		echo "<a href='".URL."principal/posts"."'>Mensajes</a><br>";
-	 		echo "<a href='".URL."principal/materials"."'>Material</a><br>";
-	 		echo "<a href='".URL."principal/profile"."'>Perfil</a><br>";
-	 		echo "<a href='".URL."principal/sing_off"."'>Cerrar sesion</a> <br>";
-	 	break;
-	 	
-	 	case 'Coordinador':
-	 		echo "<a href='".URL."principal/posts"."'>Mensajes</a><br>";
-	 		echo "<a href='".URL."principal/materials"."'>Material</a><br>";
-	 		echo "<a href='".URL."principal/check"."'>Control</a><br>";
-	 		echo "<a href='".URL."principal/profile"."'>Perfil</a><br>";
-	 		echo "<a href='".URL."principal/sing_off"."'>Cerrar sesion</a> <br>";
-	 	break;
-	 }*/
-?>
