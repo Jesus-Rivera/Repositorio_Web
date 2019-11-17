@@ -12,10 +12,11 @@
 	<link rel="stylesheet" href="<?=URL?>Resources/css/jquery.mCustomScrollbar.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/mensaje.css">
     <link rel="shorcut icon" type="<?=URL?>Resources/img/logo.png" href="<?=URL?>Resources/img/logo.png">
-	<link rel="stylesheet" href="<?=URL?>Resources/css/mi_main.css">
+    <!-- esta hoja de estilios sera la general para la pagina (mi_main.css) -->
+	<link rel="stylesheet" href="<?=URL?>Resources/css/general.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/editePerfil.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/perfilStyle.css">
-    <link rel="stylesheet" href="<?=URL?>Resources/css/styleVistaArchivo.css">
+    <link rel="stylesheet" href="<?=URL?>Resources/css/styleViewArchivo.css">
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?=URL?>/Resources/js/jquery-1.11.2.min.js"><\/script>')</script>
