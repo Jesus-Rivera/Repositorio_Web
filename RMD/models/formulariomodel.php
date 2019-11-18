@@ -21,7 +21,7 @@
 		**/
 		public function getLastId()
 		{
-			$query = $this->db->connect()->query('SELECT alumno.Usuario_idUsuario FROM alumno ORDER BY alumno.Usuario_idUsuario DESC LIMIT 1');
+			$query = $this->db->connect()->query('SELECT Alumno.Usuario_idUsuario FROM Alumno ORDER BY Alumno.Usuario_idUsuario DESC LIMIT 1');
 			$resultado = $query->fetch();
 			$id = 0;
 			foreach ($resultado as $value) {

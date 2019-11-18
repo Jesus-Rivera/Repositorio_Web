@@ -9,6 +9,8 @@
 
 		/**
 		* Constructor de la clase
+		* genera los datos de la sesion iniciada, en caso de no existir
+		* redirige al main
 		**/	
 		function __construct()
 		{
@@ -34,7 +36,9 @@
 			define("Valores",$this->model->get_registros());
 		}
 
-
+		/**
+		* Metodo que carga los mensajes recibidos y enviados
+		**/
 		public function posts()
 		{
 			$this->view->load("Sesion/header_sesion.php");
@@ -45,6 +49,9 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		/**
+		* Metodo que se encarga de crear un nuevo mensaje
+		**/
 		public function new()
 		{
 			$this->view->load("Sesion/header_sesion.php");
@@ -52,11 +59,14 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		/**
+		* Metodo que registra un nuevo mensaje en la base de datos
+		**/
 		public function send()
 		{
 			$destinatario = $_POST['Destinatario'];
 			$mensaje = $_POST['comment'];
-			if($this->model->select('SELECT * FROM usuario WHERE usuario.usuario = "'.$destinatario.'"')->fetch())
+			if($this->model->select('SELECT * FROM Usuario WHERE Usuario.Usuario = "'.$destinatario.'"')->fetch())
 			{
 				$this->model->enviar_mensaje($destinatario,$mensaje);
 				header('Location: '.URL."principal/index");

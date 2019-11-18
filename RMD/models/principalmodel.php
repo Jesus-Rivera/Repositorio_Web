@@ -15,9 +15,14 @@
 		}
 
 
+		/**
+		* Obtiene la informacion de varios mensajes
+		* @param $id identificador del usuario
+		* @return arreglo con los mensajes que se obtuvieron del usuario
+		**/
 		public function get_mensajes($id)
 		{
-			$consulta = $this->select("SELECT mensaje.Contenido as Mensaje, mensaje_recibido.Fecha as Fecha FROM (mensaje JOIN mensaje_recibido ON mensaje.idMensaje = mensaje_recibido.Mensaje_idMensaje) WHERE mensaje_recibido.Usuario_idUsuario = ".$id);
+			$consulta = $this->select("SELECT Mensaje.Contenido as Mensaje, Mensaje_recibido.Fecha as Fecha FROM (Mensaje JOIN Mensaje_recibido ON Mensaje.idMensaje = Mensaje_recibido.Mensaje_idMensaje) WHERE Mensaje_recibido.Usuario_idUsuario = ".$id);
 
 			$datos = array();
 			while ($row = $consulta->fetch()) {
@@ -31,7 +36,7 @@
 			}
 			$final = array();
 			array_push($final,$datos);
-			$consulta = $this->select("SELECT mensaje.Contenido as Mensaje, mensaje_enviado.Fecha as Fecha FROM (mensaje JOIN mensaje_enviado ON mensaje.idMensaje = mensaje_enviado.Mensaje_idMensaje) WHERE mensaje_enviado.Usuario_idUsuario = ".$id);
+			$consulta = $this->select("SELECT Mensaje.Contenido as Mensaje, Mensaje_enviado.Fecha as Fecha FROM (Mensaje JOIN Mensaje_enviado ON Mensaje.idMensaje = Mensaje_enviado.Mensaje_idMensaje) WHERE Mensaje_enviado.Usuario_idUsuario = ".$id);
 
 			$datos = array();
 			while ($row = $consulta->fetch()) {

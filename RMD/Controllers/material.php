@@ -4,7 +4,10 @@
 	 */
 	class Material extends Controller
 	{
-		
+		/**
+		* Constructor de la clase
+		* genera los datos de la sesion iniciada en caso de existir
+		**/
 		function __construct()
 		{
 			parent::__construct();
@@ -28,7 +31,9 @@
 			}
 		}
 
-
+		/**
+		* Metodo que genera la vista de un perfil, ya sea de la sesion iniciada o no
+		**/
 		public function profile()
 		{
 			if (isset($_GET['id'])) {
@@ -41,12 +46,12 @@
 				}
 				if (isset($_SESSION['ID'])) {
 					$this->view->load("Sesion/header_sesion.php");
-					$this->view->load("material/perfilAuxiliar.php");
+					$this->view->load("material/profile.php");
 					$this->view->load("Sesion/footer_sesion.php");
 				}
 				else{
 					$this->view->load("invitado/header_invitado.php");
-					$this->view->load("material/perfilAuxiliar.php");
+					$this->view->load("material/profile.php");
 					$this->view->load("invitado/footer_invitado.php");
 				}
 			}
@@ -55,14 +60,20 @@
 			}
 		}
 
-		public function edite_profile()
+		/**
+		* Metodo que genera la vista para editar un perfil
+		**/
+		public function edit_profile()
 		{
-			//$this->view->load("Sesion/header_sesion.php");
+			$this->view->load("Sesion/header_sesion.php");
 			define('Informacion',$this->model->get_inf($_SESSION['ID']));
 			$this->view->load("administracion/editarPerfil.php");
-			//$this->view->load("Sesion/footer_sesion.php");
+			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		/**
+		* Metodo que genera la vista para un archivo
+		**/
 		public function view()
 		{
 			if (isset($_GET['id'])) {
@@ -104,27 +115,34 @@
 			}
 		}
 
+		/**
+		* Metodo que guarda un nuevo comentario en la base de datos
+		**/
 		public function new_comment()
 		{
-			$id = $this->model->select("SELECT idComentario FROM comentario ORDER BY idComentario DESC LIMIT 1")->fetch()[0]+1;
+			$id = $this->model->select("SELECT idComentario FROM Comentario ORDER BY idComentario DESC LIMIT 1")->fetch()[0]+1;
 			$fecha = getdate();
 			$fecha_ingresar = $fecha['year']."-".$fecha['mon']."-".$fecha['mday']." ".$fecha['hours'].":".$fecha['minutes'].":".$fecha['seconds'];
-			$this->model->insert("comentario",[
+			$this->model->insert("Comentario",[
 				'idComentario	' => $id,
 				'Usuario_idUsuario' => $_SESSION['ID'],
 				'Archivo_idArchivo' => $_GET['id'],
 				'Fecha' => $fecha_ingresar,
-				'Mensaje' => $_POST['comentario'],
+				'Mensaje' => $_POST['Comentario'],
 			]);
 			header('Location: '.URL."material/view?id=".$_GET['id']);
 		}
 
+		/**
+		* Metodo que almacena la informacion de un archivo en la base de datos,
+		* haciendo referencia al usuario quien lo almaceno
+		**/
 		public function save()
 		{
-			if (!isset($this->model->select("SELECT * FROM archivo_guardado WHERE archivo_guardado.Usuario_idUsuario = ".$_GET['usuario']." && archivo_guardado.Archivo_idArchivo= ".$_GET['archivo'])->fetch()[0])) {
+			if (!isset($this->model->select("SELECT * FROM Archivo_guardado WHERE Archivo_guardado.Usuario_idUsuario = ".$_GET['usuario']." && Archivo_guardado.Archivo_idArchivo= ".$_GET['archivo'])->fetch()[0])) {
 				$fecha = getdate();
 				$fecha_ingresar = $fecha['year']."-".$fecha['mon']."-".$fecha['mday']." ".$fecha['hours'].":".$fecha['minutes'].":".$fecha['seconds'];
-				$this->model->insert("archivo_guardado",[
+				$this->model->insert("Archivo_guardado",[
 					'Usuario_idUsuario' => $_GET['usuario'],
 					'Archivo_idArchivo' => $_GET['archivo'],
 					'Fecha' => $fecha_ingresar,

@@ -4,7 +4,11 @@
 	 */
 	class Registro extends Controller
 	{
-		
+		/**
+		* Constructor de la clase
+		* genera los datos de la sesion iniciada, en caso de no existir
+		* redirige al main
+		**/	
 		function __construct()
 		{
 			parent::__construct();
@@ -38,6 +42,10 @@
 			header('Location: '.URL."principal");
 		}
 
+		/**
+		* Metodo que muestra todos los profesores registrados por un profesor,
+		* y genera vista para registrar un nuevo profesor
+		**/
 		public function profesor()
 		{
 			$this->view->load("Sesion/header_sesion.php");
@@ -46,6 +54,10 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		/**
+		* Metodo que muestra todos los profesores registrados por un coordinador,
+		* y genera vista para registrar un nuevo coordinador
+		**/
 		public function coordinador()
 		{
 			$this->view->load("Sesion/header_sesion.php");
@@ -54,6 +66,9 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		/**
+		* Almacena la informacion de un coordinador para su almacenamiento en la base de datos
+		**/
 		public function coordinador_register()
 		{
 			$datos_usuario = [
@@ -72,6 +87,9 @@
 			
 		}
 
+		/**
+		* Almacena la informacion de un profesor para su almacenamiento en la base de datos
+		**/
 		public function profesor_register()
 		{
 			$datos_usuario = [
@@ -89,7 +107,10 @@
 			$this->model->Registro_ProfCoord(3,$datos_usuario,$datos_academicos);
 		}
 		
-
+		/**
+		* Muestra la vista, datos y categorias necesarias para guardar un nuevo archivo, ademas de
+		* todos los materiales creados por el usuario
+		**/
 		public function archivo()
 		{
 			$this->view->load("Sesion/header_sesion.php");
@@ -100,6 +121,10 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		/**
+		* guarda el archivo del usuario, y genera la informacion necesaria para almacenarlo en 
+		* la base de datos
+		**/
 		public function upload()
 		{
 			$aux = ((integer)((string)$_SESSION['ID'])[0] == 2) ? "Coordinador":"Profesor";

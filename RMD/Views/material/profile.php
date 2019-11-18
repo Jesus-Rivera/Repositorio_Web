@@ -15,11 +15,11 @@
 			<?php
 				if (!isset($_SESSION['ID']) == 0) {
 					if ($_SESSION['ID'] == $_GET['id']) {
-						echo '
+						echo '<a href="'.URL."material/edit_profile".'">
 						<button class="primary">
 							Editar
 						</button>
-						';
+						</a>';
 					}else{
 						echo '<a href="'.URL."administracion/new?user=".InfP[2].'">
 						<button class="primary">

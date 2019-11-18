@@ -5,12 +5,17 @@
 	 */
 	class Invitado extends Controller
 	{
-		
+		/**
+		* Constructor de la clase
+		**/
 		function __construct()
 		{
 			parent::__construct();
 		}
 
+		/**
+		* Metodo que carga la informacion del invitado referente a la asignatura de base de datos
+		**/
 		public function Database()
 		{
 			define("Descripcion","Las bases de datos son un elemento fundamental en el entorno informático hoy en día y tienen aplicación en la práctica totalidad de campos. Concebidas con un propósito general, son de utilidad para toda disciplina o área de aplicación en la que exista una necesidad de gestionar datos, tanto más cuanto más voluminosos sean estos. ");
@@ -22,6 +27,9 @@
 			$this->view->load("invitado/footer_invitado.php");
 		}
 
+		/**
+		* Metodo que carga la informacion del invitado referente a la asignatura de inteligencia artificial
+		**/
 		public function IA()
 		{
 			define("Descripcion","Las bases de datos son un elemento fundamental en el entorno informático hoy en día y tienen aplicación en la práctica totalidad de campos. Concebidas con un propósito general, son de utilidad para toda disciplina o área de aplicación en la que exista una necesidad de gestionar datos, tanto más cuanto más voluminosos sean estos. ");
@@ -33,6 +41,9 @@
 			$this->view->load("invitado/footer_invitado.php");
 		}
 
+		/**
+		* Metodo que carga la informacion del invitado referente a la asignatura de Aplicaciones moviles
+		**/
 		public function Android()
 		{
 			define("Descripcion","Las bases de datos son un elemento fundamental en el entorno informático hoy en día y tienen aplicación en la práctica totalidad de campos. Concebidas con un propósito general, son de utilidad para toda disciplina o área de aplicación en la que exista una necesidad de gestionar datos, tanto más cuanto más voluminosos sean estos. ");
@@ -44,6 +55,9 @@
 			$this->view->load("invitado/footer_invitado.php");
 		}
 
+		/**
+		* Metodo que carga la informacion del invitado referente a la asignatura de tecnologias Web
+		**/
 		public function Web()
 		{
 			define("Descripcion","Las bases de datos son un elemento fundamental en el entorno informático hoy en día y tienen aplicación en la práctica totalidad de campos. Concebidas con un propósito general, son de utilidad para toda disciplina o área de aplicación en la que exista una necesidad de gestionar datos, tanto más cuanto más voluminosos sean estos. ");

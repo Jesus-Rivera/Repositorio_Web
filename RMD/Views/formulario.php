@@ -27,7 +27,7 @@
 
      <div class="cod-container">
         <div class="form-header">
-            <img src="<?=URL?>Resources/img/Logo.png">
+            <img src="<?=URL?>Resources/img/logo.png">
             <h1>RMD</h1>
         </div>
 

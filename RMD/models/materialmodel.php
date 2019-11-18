@@ -14,6 +14,12 @@
 			parent::__construct();
 		}
 
+		/**
+		* Obtiene los datos de un usuario
+		* @param $id identificador del usuario
+		* @return json con los datos del usuario
+		*
+		**/
 		public function get_inf($id)
 		{
 			$consulta = "SELECT Nombre,Apellido,Usuario,Correo,Telefono,Fecha_Nacimiento,Pais,Estado,Ciudad FROM Usuario WHERE Usuario.idUsuario = ".$id;
@@ -27,36 +33,41 @@
 		    $hoy = new DateTime();
 		    $datos[5] = $hoy->diff($nacimiento)->y;
 		    $datos[9] = $this->select("SELECT Genero FROM Usuario WHERE Usuario.idUsuario = ".$id)->fetch()[0];
-		    if($this->select("SELECT alumno.Usuario_idUsuario FROM `alumno` WHERE alumno.Usuario_idUsuario = ".$id)->fetch())
+		    if($this->select("SELECT Alumno.Usuario_idUsuario FROM `Alumno` WHERE Alumno.Usuario_idUsuario = ".$id)->fetch())
 			{
 				$datos[10] = "Alumno";
-			} elseif ($this->select("SELECT profesor.Usuario_idUsuario FROM `profesor` WHERE profesor.Usuario_idUsuario = ".$id)->fetch()) {
+			} elseif ($this->select("SELECT Profesor.Usuario_idUsuario FROM `Profesor` WHERE Profesor.Usuario_idUsuario = ".$id)->fetch()) {
 				$datos[10] = "Profesor";
-				$datos[11] = $this->select("SELECT profesor.Escuela_de_Procedencia FROM `profesor` WHERE profesor.Usuario_idUsuario = ".$id)->fetch()[0];
-			} elseif ($this->select("SELECT coordinador.Usuario_idUsuario FROM `coordinador` WHERE coordinador.Usuario_idUsuario = ".$id)->fetch()) {
+				$datos[11] = $this->select("SELECT Profesor.Escuela_de_Procedencia FROM `Profesor` WHERE Profesor.Usuario_idUsuario = ".$id)->fetch()[0];
+			} elseif ($this->select("SELECT Coordinador.Usuario_idUsuario FROM `Coordinador` WHERE Coordinador.Usuario_idUsuario = ".$id)->fetch()) {
 				$datos[10] = "Coordinador";
-				$datos[11] = $this->select("SELECT coordinador.Escuela_de_Procedencia FROM `coordinador` WHERE coordinador.Usuario_idUsuario = ".$id)->fetch()[0];
+				$datos[11] = $this->select("SELECT Coordinador.Escuela_de_Procedencia FROM `Coordinador` WHERE Coordinador.Usuario_idUsuario = ".$id)->fetch()[0];
 			}
 			return json_encode($datos);
 		}
 
+		/**
+		* Obtiene la iformacion de un material especifico
+		* @param $id identificador del material
+		* @return arreglo con datos del material
+		**/
 		public function get_material_datos($id)
 		{
 			$autor = "";
-			if($this->select("SELECT Profesor_Usuario_idUsuario FROM archivo WHERE archivo.idArchivo = ".$id)->fetch()[0])
+			if($this->select("SELECT Profesor_Usuario_idUsuario FROM Archivo WHERE Archivo.idArchivo = ".$id)->fetch()[0])
 			{
 				$autor = "Profesor_Usuario_idUsuario";
-			}elseif ($this->select("SELECT Coordinador_Usuario_idUsuario FROM archivo WHERE archivo.idArchivo = ".$id)->fetch()[0]) {
+			}elseif ($this->select("SELECT Coordinador_Usuario_idUsuario FROM Archivo WHERE Archivo.idArchivo = ".$id)->fetch()[0]) {
 				$autor = "Coordinador_Usuario_idUsuario";	
 				
 			}
-			$aux = $this->select("SELECT Nombre,Descripcion,Asignatura_idAsignatura,ubicacion,".$autor." FROM archivo WHERE archivo.idArchivo = ".$id)->fetch();
+			$aux = $this->select("SELECT Nombre,Descripcion,Asignatura_idAsignatura,ubicacion,".$autor." FROM Archivo WHERE Archivo.idArchivo = ".$id)->fetch();
 			$datos = array();
 			for ($i = 0; $i < sizeof($aux)/2; $i++) { 
 				array_push($datos,$aux[$i]);
 			}
-			$datos[2] = $this->select("SELECT Nombre FROM asignatura WHERE asignatura.idAsignatura = ".$datos[2])->fetch()[0];
-			$aux = $this->select("SELECT Nombre,Apellido,usuario FROM usuario WHERE usuario.idUsuario = ".$datos[4])->fetch();
+			$datos[2] = $this->select("SELECT Nombre FROM Asignatura WHERE Asignatura.idAsignatura = ".$datos[2])->fetch()[0];
+			$aux = $this->select("SELECT Nombre,Apellido,Usuario FROM Usuario WHERE Usuario.idUsuario = ".$datos[4])->fetch();
 			for ($i = 0; $i < sizeof($aux)/2; $i++) { 
 				array_push($datos,$aux[$i]);
 			}	
@@ -68,16 +79,21 @@
 			return $datos;
 		}
 
+		/**
+		* Obtienen los comentarios de un material
+		* @param $id identificador del material
+		* @return arreglo con comentarios hechos
+		**/
 		public function get_Comentarios($id)
 		{
-			$consulta = $this->select("SELECT Mensaje,Fecha,Usuario_idUsuario FROM comentario WHERE Archivo_idArchivo = ".$id." ORDER BY Fecha DESC");
+			$consulta = $this->select("SELECT Mensaje,Fecha,Usuario_idUsuario FROM Comentario WHERE Archivo_idArchivo = ".$id." ORDER BY Fecha DESC");
 			$datos = array();
 			while ($row = $consulta->fetch()) {
 				$aux = array();
 				for ($i=0; $i < sizeof($row)/2; $i++) { 
 					array_push($aux,$row[$i]);
 				}
-				array_push($aux,$this->select("SELECT usuario FROM usuario WHERE usuario.idUsuario = ".$aux[2])->fetch()[0]);
+				array_push($aux,$this->select("SELECT Usuario FROM Usuario WHERE Usuario.idUsuario = ".$aux[2])->fetch()[0]);
 				array_push($datos,$aux);
 			}
 			return $datos;

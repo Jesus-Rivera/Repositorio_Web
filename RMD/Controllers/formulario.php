@@ -35,7 +35,7 @@
 		{
 			$correo = $_POST['correo'];
 			$password = base64_encode($_POST['pass']);
-			$consulta = $this->model->select('SELECT Usuario.Password,Usuario.idUsuario FROM `usuario` WHERE Usuario.Correo = "'.$correo.'"');
+			$consulta = $this->model->select('SELECT Usuario.Password,Usuario.idUsuario FROM `Usuario` WHERE Usuario.Correo = "'.$correo.'"');
 			while ($row = $consulta->fetch()) {
 				$password_obtenida = $row['Password'];
 				$id_obtenida = $row['idUsuario'];

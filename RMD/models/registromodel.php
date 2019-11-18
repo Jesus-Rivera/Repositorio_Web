@@ -14,11 +14,15 @@
 			parent::__construct();
 		}
 
-
+		/**
+		* Obtiene los materiales registrados de un usuario
+		* @param $id identificador del usuario de quien se obtendra los materiales
+		* @return Matriz con los datos de los materiales
+		**/
 		public function get_material($id)
 		{
 			$tipo = ((integer)((string)$id)[0] == 2) ? "Coordinador":"Profesor";
-			$consulta = "SELECT asignatura.Nombre as Asignatura,archivo.Nombre as Nombre, archivo.Descripcion as Descripcion, archivo.Ubicacion as Ubicacion, archivo.idArchivo as ID FROM (archivo JOIN asignatura ON archivo.Asignatura_idAsignatura = asignatura.idAsignatura) WHERE archivo.".$tipo."_Usuario_idUsuario = ".$id;
+			$consulta = "SELECT Asignatura.Nombre as Asignatura,Archivo.Nombre as Nombre, Archivo.Descripcion as Descripcion, Archivo.Ubicacion as Ubicacion, Archivo.idArchivo as ID FROM (Archivo JOIN Asignatura ON Archivo.Asignatura_idAsignatura = Asignatura.idAsignatura) WHERE Archivo.".$tipo."_Usuario_idUsuario = ".$id;
 
 			$query = $this->select($consulta);
 
@@ -28,11 +32,11 @@
 				for ($i=0; $i < sizeof($row)/2; $i++) { 
 					array_push($aux,$row[$i]);
 				}
-				if ($this->select('SELECT * FROM video WHERE video.Archivo_idArchivo = '.$row[4])->fetch()){
+				if ($this->select('SELECT * FROM Video WHERE Video.Archivo_idArchivo = '.$row[4])->fetch()){
 					array_push($aux,"Video");
-				}elseif ($this->select('SELECT * FROM documento WHERE documento.Archivo_idArchivo = '.$row[4])->fetch()) {
+				}elseif ($this->select('SELECT * FROM Documento WHERE Documento.Archivo_idArchivo = '.$row[4])->fetch()) {
 					array_push($aux,"Documento");
-				}elseif ($this->select('SELECT * FROM cuestionario WHERE cuestionario.Archivo_idArchivo = '.$row[4])->fetch()) {
+				}elseif ($this->select('SELECT * FROM Cuestionario WHERE Cuestionario.Archivo_idArchivo = '.$row[4])->fetch()) {
 					array_push($aux,"Cuestionario");
 				}
 				array_push($datos,$aux);
@@ -40,10 +44,15 @@
 			return $datos;
 		}
 
+		/**
+		* Obtiene los coordinadores registrados de un usuario
+		* @param $id identificador del usuario de quien se obtendra los coordinadores
+		* @return Matriz con los datos de los coordinadores
+		**/
 		public function get_registro_coordinador($id)
 		{
 			$datos = array();
-			$consulta = "SELECT usuario.Nombre, usuario.Apellido, usuario.Usuario FROM  coordinador LEFT JOIN usuario ON coordinador.Usuario_idUsuario = usuario.idUsuario WHERE coordinador.Coordinador_Usuario_idUsuario = ".$id;
+			$consulta = "SELECT Usuario.Nombre, Usuario.Apellido, Usuario.Usuario FROM  Coordinador LEFT JOIN Usuario ON Coordinador.Usuario_idUsuario = Usuario.idUsuario WHERE Coordinador.Coordinador_Usuario_idUsuario = ".$id;
 
 			$query = $this->select($consulta);
 			while ($row = $query->fetch()) {
@@ -56,10 +65,15 @@
 			return $datos;
 		}
 
+		/**
+		* Obtiene los profesores registrados de un usuario
+		* @param $id identificador del usuario de quien se obtendra los profesores
+		* @return Matriz con los datos de los profesores
+		**/
 		public function get_registro_profesor($id)
 		{
 			
-			$consulta = "SELECT usuario.Nombre, usuario.Apellido, usuario.Usuario FROM  profesor LEFT JOIN usuario ON profesor.Usuario_idUsuario = usuario.idUsuario WHERE profesor.Coordinador_Usuario_idUsuario = ".$id;
+			$consulta = "SELECT Usuario.Nombre, Usuario.Apellido, Usuario.Usuario FROM  Profesor LEFT JOIN Usuario ON Profesor.Usuario_idUsuario = Usuario.idUsuario WHERE Profesor.Coordinador_Usuario_idUsuario = ".$id;
 
 			$query = $this->select($consulta);
 
@@ -74,6 +88,13 @@
 			return $datos;
 		}
 
+
+		/**
+		* Metodo que guarda un nuevo profesor o coordinador en la base de datos
+		* @param $tipo tipo de usuario de quien se creara el registro
+		* @param $datos_usuario Datos generales del usuario a registrar
+		* @param $datos_academicos Datos academicos del usuario a registrar 
+		**/
 		public function Registro_ProfCoord($tipo,$datos_usuario,$datos_academicos)
 		{
 			$id_coordinador = $_SESSION['ID'];
@@ -81,19 +102,19 @@
 			$fecha_ingresar = $fecha['year']."-".$fecha['mon']."-".$fecha['mday']." ".$fecha['hours'].":".$fecha['minutes'].":".$fecha['seconds'];
 			if ($tipo == 2) {
 				$password = base64_encode("C@user&rmd#");
-				$id = $this->select("SELECT Usuario_idUsuario FROM coordinador ORDER BY coordinador.Usuario_idUsuario DESC LIMIT 1")->fetch()[0] + 1;
+				$id = $this->select("SELECT Usuario_idUsuario FROM Coordinador ORDER BY Coordinador.Usuario_idUsuario DESC LIMIT 1")->fetch()[0] + 1;
 				$usuario = substr($datos_usuario['Nombre'], 0, 3).substr($datos_usuario['Apellido'], 0, 3)."Coo".$id;
 				$carpeta = "ficheros/usuarios/Coordinador/".$id;
 			}else {
 				$password = base64_encode("P@user&rmd#");
-				$id = $this->select("SELECT Usuario_idUsuario FROM profesor ORDER BY profesor.Usuario_idUsuario DESC LIMIT 1")->fetch()[0] + 1;
+				$id = $this->select("SELECT Usuario_idUsuario FROM Profesor ORDER BY Profesor.Usuario_idUsuario DESC LIMIT 1")->fetch()[0] + 1;
 				$usuario = substr($datos_usuario['Nombre'], 0, 3).substr($datos_usuario['Apellido'], 0, 3)."Pro".$id;
 				$carpeta = "ficheros/usuarios/Profesor/".$id;
 			}
 
-			$this->insert("usuario",[
+			$this->insert("Usuario",[
 				'idUsuario	' => $id,
-				'registro' => $fecha_ingresar,
+				'Registro' => $fecha_ingresar,
 				'Correo' => $datos_usuario['Correo'],
 				'Nombre' => $datos_usuario['Nombre'],
 				'Apellido' => $datos_usuario['Apellido'],
@@ -117,9 +138,13 @@
 			header('Location: '.URL."principal/index");
 		}
 
+		/**
+		* Obtiene todas las asignaturas almacenadas en la base de datos
+		* @param arreglo con las asignaturas obtenidas
+		**/
 		public function get_asignaturas()
 		{
-			$query = $this->select("SELECT * FROM asignatura");
+			$query = $this->select("SELECT * FROM Asignatura");
 
 			$datos = array();
 			while ($row = $query->fetch()) {
@@ -128,9 +153,14 @@
 			return $datos;
 		}
 
+
+		/**
+		* Obtiene todas los tipos de documentos almacenados en la base de datos
+		* @param arreglo con los tipos de documentos obtenidos
+		**/
 		public function get_tipo()
 		{
-			$query = $this->select("SELECT Nombre FROM tipo");
+			$query = $this->select("SELECT Nombre FROM Tipo");
 
 			$datos = array();
 			while ($row = $query->fetch()) {
@@ -139,12 +169,19 @@
 			return $datos;
 		}
 
+
+		/**
+		* Metodo que almacena un nuevo material en la base de datos
+		* @param $datos informacion que tendra el material en la base de datos
+		* @param $archivo documento que se almacenara en caso de existir
+		* @param $carpeta ubicacion en la que se almacenara el documento
+		**/
 		public function save_Material($datos,$archivo,$carpeta)
 		{
 			$aux = ((integer)((string)$_SESSION['ID'])[0] == 2) ? "Coordinador":"Profesor";
 			$aux = $aux."_Usuario_idUsuario";
 			
-			$id = $this->select("SELECT idArchivo FROM archivo ORDER BY archivo.idArchivo DESC LIMIT 1")->fetch()[0] + 1;
+			$id = $this->select("SELECT idArchivo FROM Archivo ORDER BY Archivo.idArchivo DESC LIMIT 1")->fetch()[0] + 1;
 
 			$ubicacion = "";
 			if (strcmp($datos['Direccion'],"")) {
@@ -155,7 +192,7 @@
 				$ubicacion = $archivo['Archivo']['name'];
 			}
 
-			$this->insert( "archivo",[
+			$this->insert( "Archivo",[
 				'idArchivo' => $id,
 				$aux => $_SESSION['ID'],
 				'Nombre' => $datos['Nombre'],
@@ -165,17 +202,17 @@
 			]);
 
 			if (strcmp($datos['Direccion'],"")) {
-				$this->insert( "video",[
+				$this->insert( "Video",[
 					'Archivo_idArchivo' => $id,
 					'Duracion' => 5,
 				]);
 			}elseif (strcmp($datos['Cantidad'],"")) {
-				$this->insert( "video",[
+				$this->insert( "Cuestionario",[
 					'Archivo_idArchivo' => $id,
 				]);
 			}elseif (isset($_FILES)) {
-				$tipo = $this->select("SELECT idTipo FROM tipo WHERE Nombre = '".substr($archivo['Archivo']['type'],-3,strlen($archivo['Archivo']['type']))."'")->fetch()[0];
-				$this->insert( "documento",[
+				$tipo = $this->select("SELECT idTipo FROM Tipo WHERE Nombre = '".substr($archivo['Archivo']['type'],-3,strlen($archivo['Archivo']['type']))."'")->fetch()[0];
+				$this->insert( "Documento",[
 					'Archivo_idArchivo' => $id,
 					'Tipo_idTipo' => $tipo,
 				]);

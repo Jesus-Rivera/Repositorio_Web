@@ -14,10 +14,14 @@
 			parent::__construct();
 		}
 
-
+		/**
+		* Obtiene todos los mensajes de un usuario especifico
+		* @param $id id del usuario del que se mostraran los mensajes
+		* @return arreglo con mensajes 
+		**/
 		public function get_mensajes($id)
 		{
-			$consulta = $this->select("SELECT mensaje.Contenido as Mensaje, mensaje_recibido.Fecha as Fecha,mensaje_recibido.Mensaje_idMensaje as Id FROM (mensaje JOIN mensaje_recibido ON mensaje.idMensaje = mensaje_recibido.Mensaje_idMensaje) WHERE mensaje_recibido.Usuario_idUsuario = ".$id." ORDER BY mensaje_recibido.Fecha DESC");
+			$consulta = $this->select("SELECT Mensaje.Contenido as Mensaje, Mensaje_recibido.Fecha as Fecha,Mensaje_recibido.Mensaje_idMensaje as Id FROM (Mensaje JOIN Mensaje_recibido ON Mensaje.idMensaje = Mensaje_recibido.Mensaje_idMensaje) WHERE Mensaje_recibido.Usuario_idUsuario = ".$id." ORDER BY Mensaje_recibido.Fecha DESC");
 
 			$datos = array();
 			while ($row = $consulta->fetch()) {
@@ -27,12 +31,12 @@
 				}
 				unset($aux[1]);
 				unset($aux[3]);
-				$aux[4] = $this->select("SELECT usuario.Usuario FROM (mensaje_enviado JOIN usuario ON mensaje_enviado.Usuario_idUsuario = usuario.idUsuario) WHERE mensaje_enviado.Mensaje_idMensaje = ".$aux[5])->fetch()[0];
+				$aux[4] = $this->select("SELECT Usuario.Usuario FROM (Mensaje_enviado JOIN Usuario ON Mensaje_enviado.Usuario_idUsuario = Usuario.idUsuario) WHERE Mensaje_enviado.Mensaje_idMensaje = ".$aux[5])->fetch()[0];
 				array_push($datos,$aux);
 			}
 			$final = array();
 			array_push($final,$datos);
-			$consulta = $this->select("SELECT mensaje.Contenido as Mensaje, mensaje_enviado.Fecha as Fecha,mensaje_enviado.Mensaje_idMensaje as Id FROM (mensaje JOIN mensaje_enviado ON mensaje.idMensaje = mensaje_enviado.Mensaje_idMensaje) WHERE mensaje_enviado.Usuario_idUsuario = ".$id." ORDER BY mensaje_enviado.Fecha DESC");
+			$consulta = $this->select("SELECT Mensaje.Contenido as Mensaje, Mensaje_enviado.Fecha as Fecha,Mensaje_enviado.Mensaje_idMensaje as Id FROM (Mensaje JOIN Mensaje_enviado ON Mensaje.idMensaje = Mensaje_enviado.Mensaje_idMensaje) WHERE Mensaje_enviado.Usuario_idUsuario = ".$id." ORDER BY Mensaje_enviado.Fecha DESC");
 
 			$datos = array();
 			while ($row = $consulta->fetch()) {
@@ -42,13 +46,18 @@
 				}
 				unset($aux[1]);
 				unset($aux[3]);
-				$aux[4] = $this->select("SELECT usuario.Usuario FROM (mensaje_recibido JOIN usuario ON mensaje_recibido.Usuario_idUsuario = usuario.idUsuario) WHERE mensaje_recibido.Mensaje_idMensaje = ".$aux[5])->fetch()[0];
+				$aux[4] = $this->select("SELECT Usuario.Usuario FROM (Mensaje_recibido JOIN Usuario ON Mensaje_recibido.Usuario_idUsuario = Usuario.idUsuario) WHERE Mensaje_recibido.Mensaje_idMensaje = ".$aux[5])->fetch()[0];
 				array_push($datos,$aux);
 			}
 			array_push($final,$datos);
 			return $final;
 		}
 
+		/**
+		* Obtiene todos los materiales guardados de un usuario especifico
+		* @param $id id del usuario del que se mostraran los materiales guardados
+		* @return arreglo con datos del material
+		**/
 		public function material_guardado($id)
 		{
 			$consulta = $this->select("SELECT archivo.idArchivo,archivo.Nombre,archivo.Descripcion FROM (archivo JOIN archivo_guardado ON archivo.idArchivo = archivo_guardado.Archivo_idArchivo) WHERE archivo_guardado.Usuario_idUsuario = ".$id);
@@ -71,15 +80,20 @@
 			return $datos;
 		}
 
+		/**
+		* Obtiene todos los mensajes del remitente de un usuario
+		* @param $id id del usuario quien envio el mensaje
+		* @return arreglo con mensajes 
+		**/
 		public function get_mensaje_remitente($id)
 		{
-			$consulta = $this->select("SELECT Usuario.idUsuario,Usuario.Nombre,Usuario.Apellido,usuario.Usuario,Usuario.Correo,Usuario.Genero FROM (mensaje_enviado JOIN usuario ON mensaje_enviado.Usuario_idUsuario = usuario.idUsuario) WHERE mensaje_enviado.Mensaje_idMensaje = ".$id)->fetch();
+			$consulta = $this->select("SELECT Usuario.idUsuario,Usuario.Nombre,Usuario.Apellido,Usuario.Usuario,Usuario.Correo,Usuario.Genero FROM (Mensaje_enviado JOIN Usuario ON Mensaje_enviado.Usuario_idUsuario = Usuario.idUsuario) WHERE Mensaje_enviado.Mensaje_idMensaje = ".$id)->fetch();
 			$datos = array();
 			for ($i = 0; $i < sizeof($consulta)/2; $i++) { 
 				array_push($datos,$consulta[$i]);
 			}
 
-			$consulta = $this->select("SELECT mensaje_recibido.Fecha,mensaje.Contenido FROM (mensaje JOIN mensaje_recibido ON mensaje.idMensaje = mensaje_recibido.Mensaje_idMensaje) WHERE mensaje.idMensaje = ".$id)->fetch();
+			$consulta = $this->select("SELECT Mensaje_recibido.Fecha,Mensaje.Contenido FROM (Mensaje JOIN Mensaje_recibido ON Mensaje.idMensaje = Mensaje_recibido.Mensaje_idMensaje) WHERE Mensaje.idMensaje = ".$id)->fetch();
 
 			for ($i = 0; $i < sizeof($consulta)/2; $i++) { 
 				array_push($datos,$consulta[$i]);
@@ -99,24 +113,29 @@
 			return $datos;
 		}
 
+		/**
+		* Metodo encargado de enviar un mensaje a un usuario especifico
+		* @param $destinatario Usuario a quien se le enviara el mensaje
+		* @param $mensaje Mensaje que se enviara
+		**/
 		public function enviar_mensaje($destinatario,$mensaje)
 		{
-			$destinatario_id = $this->select("SELECT usuario.idUsuario FROM usuario WHERE usuario.usuario = '".$destinatario."'")->fetch()[0];
+			$destinatario_id = $this->select("SELECT Usuario.idUsuario FROM Usuario WHERE Usuario.Usuario = '".$destinatario."'")->fetch()[0];
 			$fecha = getdate();
 			$fecha_ingresar = $fecha['year']."-".$fecha['mon']."-".$fecha['mday']." ".$fecha['hours'].":".$fecha['minutes'].":".$fecha['seconds'];
-			$id = $this->select("SELECT mensaje.idMensaje FROM mensaje ORDER BY idMensaje DESC LIMIT 1")->fetch()[0] + 1;
-			$this->insert("mensaje",[
+			$id = $this->select("SELECT Mensaje.idMensaje FROM Mensaje ORDER BY idMensaje DESC LIMIT 1")->fetch()[0] + 1;
+			$this->insert("Mensaje",[
 				'idMensaje' => $id,
 				'Contenido' => $mensaje,
 			]);
 
-			$this->insert("mensaje_enviado",[
+			$this->insert("Mensaje_enviado",[
 				'Usuario_idUsuario' => $_SESSION['ID'],
 				'Mensaje_idMensaje' => $id,
 				'Fecha' => $fecha_ingresar,
 			]);
 
-			$this->insert("mensaje_recibido",[
+			$this->insert("Mensaje_recibido",[
 				'Usuario_idUsuario' => $destinatario_id,
 				'Mensaje_idMensaje' => $id,
 				'Fecha' => $fecha_ingresar,

@@ -9,6 +9,8 @@
 
 		/**
 		* Constructor de la clase
+		* genera los datos de la sesion iniciada, en caso de no existir
+		* redirige al main
 		**/	
 		function __construct()
 		{
@@ -49,22 +51,30 @@
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
+		/**
+		* Metodo que cierra la sesion actual
+		**/
 		public function sing_off()
 		{
 			session_destroy();
 			header('Location: '.URL."main");
 		}
 
+		/**
+		* Metodo que muestra los materiales que se mostraran al inicio de una sesion
+		* o en el catalogo del coordinador
+		**/
 		public function materials()
 		{
-			//"SELECT * FROM archivo ORDER BY archivo.idArchivo DESC LIMIT 6"
 			$this->view->load("Sesion/header_sesion.php");
 			define("catalogo",$this->model->material_rand(9));
 			$this->view->load("Sesion/MD.php");
 			$this->view->load("Sesion/footer_sesion.php");
 		}
 
-
+		/**
+		* En proceso
+		**/
 		public function consulta()
 		{
 			echo 'prueba';

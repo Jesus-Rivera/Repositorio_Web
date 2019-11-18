@@ -16,7 +16,7 @@
 		}
 
 		/**
-		 * Funcion que carga las vista principal
+		 * Metodo que carga las vista principal
 		**/
 		function index()
 		{

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="<?=URL?>Resources/css/mensaje.css">
     <link rel="shorcut icon" type="<?=URL?>Resources/img/logo.png" href="<?=URL?>Resources/img/logo.png">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/mi_main.css">
-	<link rel="stylesheet" href="<?=URL?>Resources/css/editePerfil.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/editPerfil.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/perfilStyle.css">
     <link rel="stylesheet" href="<?=URL?>Resources/css/styleVistaArchivo.css">
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>

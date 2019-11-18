@@ -49,7 +49,7 @@
 
 		public function get_datos($id)
 		{
-			$consulta = $this->select("SELECT Usuario.Nombre as 'Nombre', Usuario.Apellido as 'Apellido', Usuario.Genero as 'Genero', Usuario.Usuario as 'Usuario' FROM `usuario` WHERE Usuario.idUsuario = ".$id);
+			$consulta = $this->select("SELECT Usuario.Nombre as 'Nombre', Usuario.Apellido as 'Apellido', Usuario.Genero as 'Genero', Usuario.Usuario as 'Usuario' FROM `Usuario` WHERE Usuario.idUsuario = ".$id);
 
 			while ($row = $consulta->fetch()) {
 				$datos = $row;
@@ -58,43 +58,49 @@
 				unset($datos[$i]);
 			}
 			unset($datos[3]);
-			if($this->select("SELECT alumno.Usuario_idUsuario FROM `alumno` WHERE alumno.Usuario_idUsuario = ".$id)->fetch())
+			if($this->select("SELECT Alumno.Usuario_idUsuario FROM `Alumno` WHERE Alumno.Usuario_idUsuario = ".$id)->fetch())
 			{
 				array_push($datos,"Alumno");
-			} elseif ($this->select("SELECT profesor.Usuario_idUsuario FROM `profesor` WHERE profesor.Usuario_idUsuario = ".$id)->fetch()) {
+			} elseif ($this->select("SELECT Profesor.Usuario_idUsuario FROM `Profesor` WHERE Profesor.Usuario_idUsuario = ".$id)->fetch()) {
 				array_push($datos,"Profesor");
-			} elseif ($this->select("SELECT coordinador.Usuario_idUsuario FROM `coordinador` WHERE coordinador.Usuario_idUsuario = ".$id)->fetch()) {
+			} elseif ($this->select("SELECT Coordinador.Usuario_idUsuario FROM `Coordinador` WHERE Coordinador.Usuario_idUsuario = ".$id)->fetch()) {
 				array_push($datos, "Coordinador");
 			}
 			return $datos;
 		}
 
+		/**
+		* Obtiene la informacion y todos los registros almacenados en la base de datos
+		**/
 		public function get_registros()
 		{
 			$datos = array();
-			array_push($datos,$this->select("SELECT count(*) FROM coordinador")->fetch()[0]
-				,$this->select("SELECT count(*) FROM alumno")->fetch()[0]
-				,$this->select("SELECT count(*) FROM profesor")->fetch()[0]
-				,$this->select("SELECT count(*) FROM asignatura")->fetch()[0]
-				,$this->select("SELECT count(*) FROM archivo")->fetch()[0]);
+			array_push($datos,$this->select("SELECT count(*) FROM Coordinador")->fetch()[0]
+				,$this->select("SELECT count(*) FROM Alumno")->fetch()[0]
+				,$this->select("SELECT count(*) FROM Profesor")->fetch()[0]
+				,$this->select("SELECT count(*) FROM Asignatura")->fetch()[0]
+				,$this->select("SELECT count(*) FROM Archivo")->fetch()[0]);
 			return $datos;
 		}
 
-
+		/**
+		* Genera la informacion para mostrar de un numero dado de manera aleatoria
+		* @param $cantidad elementos que se generaran
+		**/
 		public function material_rand($cantidad)
 		{
-			$consulta = $this->select("SELECT archivo.idArchivo,archivo.Nombre,archivo.Descripcion FROM archivo ORDER BY RAND() LIMIT ".$cantidad);
+			$consulta = $this->select("SELECT Archivo.idArchivo,Archivo.Nombre,Archivo.Descripcion FROM Archivo ORDER BY RAND() LIMIT ".$cantidad);
 			$datos = array();
 			while ($row = $consulta->fetch()) {
 				$aux = array();
 				for ($i = 0; $i < (sizeof($row)/2); $i ++) { 
 					array_push($aux,$row[$i]);
 				}
-				if ($this->select("SELECT * FROM video WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
+				if ($this->select("SELECT * FROM Video WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
 					array_push($aux,"Video");
-				}elseif ($this->select("SELECT * FROM cuestionario WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
+				}elseif ($this->select("SELECT * FROM Cuestionario WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
 					array_push($aux,"Cuestionario");
-				}elseif ($this->select("SELECT * FROM documento WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
+				}elseif ($this->select("SELECT * FROM Documento WHERE Archivo_idArchivo = ".$row[0])->fetch()) {
 					array_push($aux,"Documento");
 				}
 
