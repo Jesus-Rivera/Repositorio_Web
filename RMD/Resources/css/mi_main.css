@@ -297,15 +297,82 @@ body {
     right: 0;
 }
 
+/*====radio button=======*/
+
+.containerRadio {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #BDC3C7;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+}
+
+
+.containerRadio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.containerRadio input:checked ~ .checkmark {
+  background-color: #2196F3;
+
+}
+
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+.containerRadio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.containerRadio .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.containerRadio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
 
 /*====== Backgrouns color*/
 
 .bg-primary {
-    background-color: #2e6da4 !important;
+    background-color: #138D75  !important;
 }
 
 .bg-success {
-    background-color: #3f903f !important;
+    background-color: #138D75  !important;
 }
 
 .bg-danger {
@@ -338,7 +405,7 @@ body {
 /*=============Estilos barra superior*/
 
 .navBar {
-    background-color: #303030;
+    background-color: #000;
     height: 45px;
     position: absolute;
     top: 0;
@@ -479,7 +546,7 @@ body {
     color: #fff;
     width: 100%;
     font-size: 25px;
-    background-color: #303030;
+    background-color: #000;
 }
 
 .navLateral-body-logo .zmdi-close {
@@ -669,6 +736,7 @@ body {
     font-size: 90px;
     line-height: 67px;
     z-index: 1;
+    color:darkcyan;
 }
 
 
@@ -1066,7 +1134,8 @@ img {
 }
 
 .btn:hover {
-    background-color: #65FF00;
+    background-color: #212F3D;
+    color: #fff;
 }
 
 .cards {

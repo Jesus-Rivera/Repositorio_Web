@@ -59,8 +59,14 @@
                                         <span class="mdl-textfield__error">No valido</span>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        <input type="radio" name="gender" value="Male">Hombre<br>
-                                        <input type="radio" name="gender" value="Female">Mujer<br>
+                                        <label class="containerRadio">Hombre
+                                            <input type="radio" name="sexo">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="containerRadio">Mujer
+                                            <input type="radio" name="sexo">
+                                            <span class="checkmark"></span>
+                                        </label>
                                     </div>
                                     <p class="text-center">
                                         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored bg-primary" id="btn-addClient">
