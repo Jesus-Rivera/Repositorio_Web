@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="<?=URL?>Resources/css/mensaje.css">
     <link rel="shorcut icon" type="<?=URL?>Resources/img/logo.png" href="<?=URL?>Resources/img/logo.png">
     <!-- esta hoja de estilios sera la general para la pagina (mi_main.css) -->
-	<link rel="stylesheet" href="<?=URL?>Resources/css/general.css">
+	<link rel="stylesheet" href="<?=URL?>Resources/css/Stylegeneral.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/editePerfil.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/perfilStyle.css">
     <link rel="stylesheet" href="<?=URL?>Resources/css/styleViewArchivo.css">
