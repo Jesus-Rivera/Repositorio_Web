@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
 
 body,
 input,
@@ -85,7 +85,7 @@ textarea:focus {
 }
 .container:hover::before {
   -webkit-transform: scale(1);
-  transform: scale(1);
+          transform: scale(1);
 }
 
 .button-container {

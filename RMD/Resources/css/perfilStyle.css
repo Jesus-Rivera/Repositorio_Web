@@ -5,7 +5,7 @@
 }
 
 body {
-   /*background-color: #28223F; */
+  /* background-color: #28223F; */
   font-family: Montserrat, sans-serif;
   
   display: flex;
@@ -32,7 +32,6 @@ p {
 }
 
 .card-container {
-
   margin-left: 30%;
   background-color: #231E39;
   border-radius: 5px;
@@ -43,7 +42,6 @@ p {
   width: 40%;
   max-width: 100%;
   text-align: center;
-  margin-top: 3%;
 }
 
 .card-container .round {

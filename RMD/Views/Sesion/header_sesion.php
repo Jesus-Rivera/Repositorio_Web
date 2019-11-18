@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="<?=URL?>Resources/css/mi_main.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/editPerfil.css">
 	<link rel="stylesheet" href="<?=URL?>Resources/css/perfilStyle.css">
-    <link rel="stylesheet" href="<?=URL?>Resources/css/styleViewArchivo.css">
+    <link rel="stylesheet" href="<?=URL?>Resources/css/styleVistaArchivo.css">
 	<script src="https://kit.fontawesome.com/f8b2926d66.js" crossorigin="anonymous"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script>window.jQuery || document.write('<script src="<?=URL?>/Resources/js/jquery-1.11.2.min.js"><\/script>')</script>
