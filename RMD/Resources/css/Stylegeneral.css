@@ -338,13 +338,13 @@ body {
 /*=============Estilos barra superior*/
 
 .navBar {
-    background-color: #3F51B5;
+    background-color: #000;
     height: 45px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 79;
-    color: #fff;
+    color: #000;
 }
 
 .navBar-options {
@@ -396,6 +396,7 @@ body {
 }
 
 .navBar-options-list ul li {
+    color: #fff;
     height: 45px;
     line-height: 45px;
     cursor: pointer;
@@ -479,7 +480,8 @@ body {
     color: #fff;
     width: 100%;
     font-size: 25px;
-    background-color: #3F51B5;
+    background-color: #000; 
+    /*background-color: #3F51B5;*/
 }
 
 .navLateral-body-logo .zmdi-close {
@@ -547,6 +549,7 @@ body {
 
 .menu-principal li a:hover {
     color: #3F51B5;
+    font-weight: bold;
 }
 
 .menu-principal li a div.navLateral-body-cl,
@@ -617,9 +620,10 @@ body {
 
 .tile {
     border: 1px solid #E1E1E1;
+    border-radius: 4px;
     height: 140px;
     width: 30%;
-    margin: 0 1%;
+    margin: 5% 1%;
     position: relative;
     transition: all .3s ease-in-out;
     overflow: hidden;
@@ -633,7 +637,7 @@ body {
 }
 
 .tile:hover .tile-icon {
-    color: rgba(0, 191, 238, .3);
+    color: rgb(0, 47, 166);
     transform: scale(1.5) translate(-10px, -10px);
 }
 
@@ -791,7 +795,7 @@ body {
 
 
 /*=====================================================
-					Estilos products
+					Estilos catalogo de material
 ======================================================*/
 
 .menu-categories ul li {

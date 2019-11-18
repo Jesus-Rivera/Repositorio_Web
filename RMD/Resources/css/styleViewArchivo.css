@@ -53,6 +53,8 @@ set-box-shadow-cicis-menu-to-go {
     overflow: hidden;
     padding: 5%;
     padding-top: 10vh;
+    /*background: red;*/
+    height: 15%;
 }
 .button {
     display: inline-block;
@@ -62,9 +64,10 @@ set-box-shadow-cicis-menu-to-go {
     padding: .8em 1.4em;
     padding-right: 4.7em;
     background: #22B3A3;
-     border: none;
-     color: white;
-     transition: .2s;
+    border: none;
+    color: white;
+    transition: .2s;
+    width: 20%;
  }
  .button::before, .button::after {
      position: absolute;
