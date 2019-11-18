@@ -23,7 +23,7 @@
         <div class="contenedor-boton">
             <?php 
                 if (isset($_SESSION['ID'])) {
-                    echo '<button class="button download">Descargar</button>
+                    echo '<a href="'.URL."material/download?archivo=".$_GET['id']."&usuario=".$_SESSION['ID'].'"><button class="button download">Descargar</button></a>
                            <a href="'.URL."material/save?archivo=".$_GET['id']."&usuario=".$_SESSION['ID'].'"><button class="button save">Guardar</button></a>';
                     if ($_SESSION['ID'] == Datos[4]) {
                         echo ' <button class="button delete">Eliminar</button>';

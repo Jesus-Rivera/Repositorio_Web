@@ -213,7 +213,7 @@ body {
     height: 45px;
     line-height: 45px;
     color: #fff;
-    background-color: #3F51B5;
+    background-color: #303030;
     box-sizing: border-box;
 }
 
@@ -338,7 +338,7 @@ body {
 /*=============Estilos barra superior*/
 
 .navBar {
-    background-color: #3F51B5;
+    background-color: #303030;
     height: 45px;
     position: absolute;
     top: 0;
@@ -479,7 +479,7 @@ body {
     color: #fff;
     width: 100%;
     font-size: 25px;
-    background-color: #3F51B5;
+    background-color: #303030;
 }
 
 .navLateral-body-logo .zmdi-close {

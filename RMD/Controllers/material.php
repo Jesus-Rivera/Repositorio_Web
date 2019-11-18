@@ -150,6 +150,18 @@
 			}
 			header('Location: '.URL."material/view?id=".$_GET['archivo']);	
 		}
+
+
+		public function download()
+		{
+			$tipo = ((integer)((string)$_GET['usuario'])[0] == 2) ? "Coordinador":"Profesor";
+			$nombre = $this->model->select("SELECT * FROM Archivo WHERE Archivo.idArchivo = ".$_GET['archivo'])->fetch()['Ubicacion'];
+			$Ubicacion = "ficheros/usuarios/".$tipo."/".$_GET['usuario']."/".$nombre;
+			header("Content-disposition: attachment; filename=".$Ubicacion);
+			header("Content-type: MIME");
+			readfile($Ubicacion);
+			header('Location: '.URL."material/view?id=".$_GET['archivo']);
+		}
 	}
 
 ?>
