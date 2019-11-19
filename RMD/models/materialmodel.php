@@ -43,6 +43,7 @@
 				$datos[10] = "Coordinador";
 				$datos[11] = $this->select("SELECT Coordinador.Escuela_de_Procedencia FROM `Coordinador` WHERE Coordinador.Usuario_idUsuario = ".$id)->fetch()[0];
 			}
+			$datos[12] = date_format($nacimiento,'Y-m-d');
 			return json_encode($datos);
 		}
 
