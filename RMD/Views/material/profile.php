@@ -60,4 +60,3 @@
 	document.getElementById('tipo_usuario').innerHTML = inf[10];
 	document.getElementById('school').innerHTML = inf[11];
 </script>
-</script>

@@ -25,8 +25,8 @@
                 if (isset($_SESSION['ID'])) {
                     echo '<a href="'.URL."material/download?archivo=".$_GET['id']."&usuario=".$_SESSION['ID'].'"><button class="button download">Descargar</button></a>
                            <a href="'.URL."material/save?archivo=".$_GET['id']."&usuario=".$_SESSION['ID'].'"><button class="button save">Guardar</button></a>';
-                    if ($_SESSION['ID'] == Datos[4]) {
-                        echo ' <button class="button delete">Eliminar</button>';
+                    if ($_SESSION['ID'] == Datos[4] || (integer)((string)$_SESSION['ID'])[0] == 2) {
+                        echo '<a href="'.URL.'material/delete_material?id='.$_GET['id'].'"><button class="button delete">Eliminar</button></a>';
                     }
                 }
             ?>

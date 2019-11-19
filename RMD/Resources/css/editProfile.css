@@ -1,8 +1,8 @@
 .login-box {
-    margin-top: 35%;
-    width: 420px;
-    height: 510px;
-    background: #000;
+    margin-top: 70%;
+    width: 600px;
+    height: 80%;
+    background: #252525;
     border-radius: 4px;
     color: #fff;
     top: 60%;
@@ -51,6 +51,16 @@
     font-size: 16px;
   }
 
+    .login-box input[type="date"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #252525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+  }
+
   .login-box input[type="submit"] {
     border: none;
     outline: none;
@@ -60,6 +70,7 @@
     font-size: 18px;
     border-radius: 20px;
   }
+
 
   .login-box input[type="submit"]:hover {
     cursor: pointer;

@@ -20,7 +20,7 @@ USE `RMD` ;
 CREATE TABLE IF NOT EXISTS `RMD`.`Usuario` (
   `idUsuario` INT NOT NULL,
   `Registro` DATE NOT NULL,
-  `Correo` VARCHAR(20) NOT NULL,
+  `Correo` VARCHAR(50) NOT NULL,
   `Nombre` VARCHAR(20) NOT NULL,
   `Apellido` VARCHAR(45) NOT NULL,
   `Fecha_Nacimiento` DATE NOT NULL,
@@ -51,13 +51,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Coordinador` (
   CONSTRAINT `fk_Coordinador_Usuario`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Coordinador_Coordinador1`
     FOREIGN KEY (`Coordinador_Usuario_idUsuario`)
     REFERENCES `RMD`.`Coordinador` (`Usuario_idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -114,18 +114,18 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Archivo` (
   CONSTRAINT `fk_Archivo_Coordinador1`
     FOREIGN KEY (`Coordinador_Usuario_idUsuario`)
     REFERENCES `RMD`.`Coordinador` (`Usuario_idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Archivo_Profesor1`
     FOREIGN KEY (`Profesor_Usuario_idUsuario`)
     REFERENCES `RMD`.`Profesor` (`Usuario_idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Archivo_Asignatura1`
     FOREIGN KEY (`Asignatura_idAsignatura`)
     REFERENCES `RMD`.`Asignatura` (`idAsignatura`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -154,13 +154,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Comentario` (
   CONSTRAINT `fk_Comentario_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Comentario_Archivo1`
     FOREIGN KEY (`Archivo_idArchivo`)
     REFERENCES `RMD`.`Archivo` (`idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -175,8 +175,8 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Alumno` (
   CONSTRAINT `fk_Alumno_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -191,8 +191,8 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Video` (
   CONSTRAINT `fk_Video_Archivo1`
     FOREIGN KEY (`Archivo_idArchivo`)
     REFERENCES `RMD`.`Archivo` (`idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -218,13 +218,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Documento` (
   CONSTRAINT `fk_Documento_Archivo1`
     FOREIGN KEY (`Archivo_idArchivo`)
     REFERENCES `RMD`.`Archivo` (`idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Documento_Tipo1`
     FOREIGN KEY (`Tipo_idTipo`)
     REFERENCES `RMD`.`Tipo` (`idTipo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -238,8 +238,8 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Cuestionario` (
   CONSTRAINT `fk_Cuestionario_Archivo1`
     FOREIGN KEY (`Archivo_idArchivo`)
     REFERENCES `RMD`.`Archivo` (`idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -256,13 +256,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Mensaje_Enviado` (
   CONSTRAINT `fk_Usuario_has_Mensaje_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Mensaje_Mensaje1`
     FOREIGN KEY (`Mensaje_idMensaje`)
     REFERENCES `RMD`.`Mensaje` (`idMensaje`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -279,13 +279,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Mensaje_Recibido` (
   CONSTRAINT `fk_Usuario_has_Mensaje_Usuario2`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Mensaje_Mensaje2`
     FOREIGN KEY (`Mensaje_idMensaje`)
     REFERENCES `RMD`.`Mensaje` (`idMensaje`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -302,13 +302,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Archivo_Visto` (
   CONSTRAINT `fk_Usuario_has_Archivo_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Archivo_Archivo1`
     FOREIGN KEY (`Archivo_idArchivo`)
     REFERENCES `RMD`.`Archivo` (`idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -325,13 +325,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Archivo_Guardado` (
   CONSTRAINT `fk_Usuario_has_Archivo_Usuario2`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Archivo_Archivo2`
     FOREIGN KEY (`Archivo_idArchivo`)
     REFERENCES `RMD`.`Archivo` (`idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -348,13 +348,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Documento_Descargado` (
   CONSTRAINT `fk_Usuario_has_Documento_Usuario1`
     FOREIGN KEY (`Usuario_idUsuario`)
     REFERENCES `RMD`.`Usuario` (`idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Documento_Documento1`
     FOREIGN KEY (`Documento_Archivo_idArchivo`)
     REFERENCES `RMD`.`Documento` (`Archivo_idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -371,13 +371,13 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Cuestionario_Resuelto` (
   CONSTRAINT `fk_Alumno_has_Cuestionario_Alumno1`
     FOREIGN KEY (`Alumno_Usuario_idUsuario`)
     REFERENCES `RMD`.`Alumno` (`Usuario_idUsuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Alumno_has_Cuestionario_Cuestionario1`
     FOREIGN KEY (`Cuestionario_Archivo_idArchivo`)
     REFERENCES `RMD`.`Cuestionario` (`Archivo_idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 
@@ -420,18 +420,18 @@ CREATE TABLE IF NOT EXISTS `RMD`.`Pregunta` (
   CONSTRAINT `fk_Pregunta_Correcta1`
     FOREIGN KEY (`Correcta_idCorrecta`)
     REFERENCES `RMD`.`Op_Correcta` (`idCorrecta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Pregunta_Incorrecta1`
     FOREIGN KEY (`Incorrecta_idIncorrecta`)
     REFERENCES `RMD`.`Op_Incorrecta` (`idIncorrecta`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_Pregunta_Cuestionario1`
     FOREIGN KEY (`Cuestionario_Archivo_idArchivo`)
     REFERENCES `RMD`.`Cuestionario` (`Archivo_idArchivo`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 

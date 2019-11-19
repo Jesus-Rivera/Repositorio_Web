@@ -67,8 +67,63 @@
 		{
 			$this->view->load("Sesion/header_sesion.php");
 			define('Informacion',$this->model->get_inf($_SESSION['ID']));
+			define('InfP',json_decode(Informacion));
+			if (strcmp(InfP[9],"Male") == 0) {
+				define('Direccion_picture',InfP[10]."_H.png");
+			}else {
+				define('Direccion_picture',InfP[10]."_M.png");
+			}
 			$this->view->load("administracion/editarPerfil.php");
 			$this->view->load("Sesion/footer_sesion.php");
+		}
+
+
+		/** 692
+		* Elimina un material
+		**/
+		public function delete_material()
+		{
+			$this->model->delete("Archivo",["idArchivo",$_GET['id']]);
+			header('Location: '.URL."principal");
+		}
+
+		/**
+		* Almacena los nuevos valores
+		**/
+		public function save_profile()
+		{
+			$datos = [];
+			if (strcmp($_POST['name'],"") != 0) {
+				$datos['Nombre'] = $_POST['name'];
+			}if (strcmp($_POST['lastname'],"") != 0) {
+				$datos['Apellido'] = $_POST['lastname'];
+			}if (strcmp($_POST['birthday'],"") != 0) {
+				$datos['Fecha_Nacimiento'] = $_POST['birthday'];
+			}if (strcmp($_POST['phone'],"") != 0) {
+				$datos['Telefono'] = $_POST['phone'];
+			}if (strcmp($_POST['email'],"") != 0) {
+				$datos['Correo'] = $_POST['email'];
+			}if (strcmp($_POST['user'],"") != 0) {
+				$datos['Usuario'] = $_POST['user'];
+			}if (strcmp($_POST['country'],"") != 0) {
+				$datos['Pais'] = $_POST['country'];
+			}if (strcmp($_POST['state'],"") != 0) {
+				$datos['Estado'] = $_POST['state'];
+			}if (strcmp($_POST['city'],"") != 0) {
+				$datos['Ciudad'] = $_POST['city'];
+			}
+
+			if (strcmp($_POST['new_password'],"") != 0) {
+				$password = $this->model->select("SELECT Usuario.Password FROM Usuario WHERE Usuario.idUsuario = ".$_SESSION['ID'])->fetch()[0];
+				if (strcmp(base64_encode($_POST['password']),$password) == 0){
+					$datos['Password'] = base64_encode($_POST['new_password']);
+				}
+				else{
+					header('Location: '.URL."material/edit_profile?&Error=1");
+				}
+			}
+			$this->model->update('Usuario',$datos,['idUsuario',$_SESSION['ID']]);
+			header('Location: '.URL."material/profile?id=".$_SESSION['ID']);
 		}
 
 		/**

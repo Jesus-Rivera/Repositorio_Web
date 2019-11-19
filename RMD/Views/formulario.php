@@ -11,19 +11,6 @@
 </head>
 
 <body>
-    <!-- formulario -->
-    <!-- 
-        registrarse
-        nombre
-        apellido
-        usuario
-        contraseña
-        correo
-        
-        inisio de sesion
-        usuario
-        contraseña
-     -->
 
      <div class="cod-container">
         <div class="form-header">

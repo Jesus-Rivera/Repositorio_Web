@@ -47,6 +47,37 @@
 			return $query;
 		}
 
+		/**
+		 * Funcion que actualiza los elementos de una tabla
+		 * @param string $tabla nombre de la tabla
+		 * @param array $datos valores que se insertara a la tabla
+		 * @param array $id identificador del registro
+		**/
+		public function update($tabla,$datos,$condicion)
+		{
+			$consulta = "UPDATE ".$tabla." SET ";
+			foreach ($datos as $key => $value) {
+				$consulta .= $key." = '".$value."',";
+			}
+			$consulta = substr($consulta, 0, -1);
+			$consulta .= " WHERE ".$tabla.".".$condicion[0]." = ".$condicion[1];
+			$query = $this->db->connect()->prepare($consulta);
+			$query->execute();
+		}
+
+		/**
+		 * Funcion que alimina un registro de la tabla
+		 * @param string $tabla nombre de la tabla
+		 * @param array $id identificador del registro
+		**/
+		public function delete($tabla,$condicion)
+		{
+			$consulta = "DELETE FROM ".$tabla;
+			$consulta .= " WHERE ".$tabla.".".$condicion[0]." = ".$condicion[1];
+			$query = $this->db->connect()->prepare($consulta);
+			$query->execute();
+		}
+
 		public function get_datos($id)
 		{
 			$consulta = $this->select("SELECT Usuario.Nombre as 'Nombre', Usuario.Apellido as 'Apellido', Usuario.Genero as 'Genero', Usuario.Usuario as 'Usuario' FROM `Usuario` WHERE Usuario.idUsuario = ".$id);
